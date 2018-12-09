@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: amothic/alpine-hugo:latest
+    working_directory: ~/project
+    steps:
+      - checkout
+      - run:
+          name: Submodule init
+          command: |
+            git submodule init
+            git submodule update
+      - run:
+          name: Build
+          command: |
+            HUGO_ENV=production hugo -v
+      - run:
+          name: Sync S3
+          command: |
+            aws s3 sync public s3://hiroyuki8823.net/ --delete
+      - run:
+          name: Create invalidation
+          command: |
+            aws configure set preview.cloudfront true
+            aws cloudfront create-invalidation --distribution-id < 	EKD6DPV0TFZFZ > --paths "/*"
