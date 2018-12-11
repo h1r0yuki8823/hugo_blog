@@ -1,7 +1,7 @@
 ---
 title: "Test post"
 date: 2018-12-09T08:37:59+09:00
-draft: false
+draft: true
 ---
 
 ## Test post
