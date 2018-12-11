@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.52" />
+
+<link rel="apple-touch-icon" href="http://hiroyuki8823.net/images/logo.png">
+
+
+<link rel="canonical" href="http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/20181211/">
+
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Lobster%7cLato:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Rubyのシンボルについて - hiroyuki&#43;=1</title>
+    
+
+<link rel="amphtml" type="text/html" href="http://hiroyuki8823.net/amp/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/20181211/">
+
+<meta name="description" content="rubyのシンボルについて ただいまrailsを使用してのポートフォリオサイトを作っているのですが、railsチュートリアルを一周して理解が完全でないまま進めていると、時々これはなんだっけというものが出てくるので復習今回はシンボルrailsだとこういう時に使われるかdef user_params params.require(:user).permit(:name, :email, :password, :password_confirmation) end  リファレンスには  シンボルを表すクラス。シンボルは任意の文字列と一対一に対応するオブジェクトです。 文字列の代わりに用いることもできますが、必ずしも文字列と同じ振る舞いをするわけではありません。 同じ内容のシンボルはかならず同一のオブジェクトです。 よくわからないですねぇ中身は整数 プロを目指す人のためのRuby入門のシンボルを開いてみると* 表面は文字列と同じに見えるが、中身は整数 * 文字列より高速に処理ができると書いてある。そしてイミュータブルオブジェクトなので破壊的な変更はできない。name = :hiroyuki name.class #=&amp;gt; Symbol name.upcase! #=&amp;gt; NoMethodError  シンボルの使用例 代表的な使用例はハッシュのキーとして使う。ハッシュのキーに文字列を使うよりハッシュの方が高速らしい。ハッシュで使用する際の例role = {top: &#39;fighter&#39;,mid: &#39;mage&#39;, adc: :&#39;markshman&#39;} role[:adc] #=&amp;gt; &#39;marksman&#39; #キーも値もシンボルの場合 role = {top: :fighter,mid: :mage, adc: :markshman}  例えがわかりにくいがまあいいか。">
+
+<meta property="og:title" content="Rubyのシンボルについて - hiroyuki&#43;=1">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/20181211/">
+<meta property="og:image" content="http://hiroyuki8823.net/images/default.png">
+<meta property="og:site_name" content="hiroyuki&#43;=1">
+<meta property="og:description" content="rubyのシンボルについて ただいまrailsを使用してのポートフォリオサイトを作っているのですが、railsチュートリアルを一周して理解が完全でないまま進めていると、時々これはなんだっけというものが出てくるので復習今回はシンボルrailsだとこういう時に使われるかdef user_params params.require(:user).permit(:name, :email, :password, :password_confirmation) end  リファレンスには  シンボルを表すクラス。シンボルは任意の文字列と一対一に対応するオブジェクトです。 文字列の代わりに用いることもできますが、必ずしも文字列と同じ振る舞いをするわけではありません。 同じ内容のシンボルはかならず同一のオブジェクトです。 よくわからないですねぇ中身は整数 プロを目指す人のためのRuby入門のシンボルを開いてみると* 表面は文字列と同じに見えるが、中身は整数 * 文字列より高速に処理ができると書いてある。そしてイミュータブルオブジェクトなので破壊的な変更はできない。name = :hiroyuki name.class #=&amp;gt; Symbol name.upcase! #=&amp;gt; NoMethodError  シンボルの使用例 代表的な使用例はハッシュのキーとして使う。ハッシュのキーに文字列を使うよりハッシュの方が高速らしい。ハッシュで使用する際の例role = {top: &#39;fighter&#39;,mid: &#39;mage&#39;, adc: :&#39;markshman&#39;} role[:adc] #=&amp;gt; &#39;marksman&#39; #キーも値もシンボルの場合 role = {top: :fighter,mid: :mage, adc: :markshman}  例えがわかりにくいがまあいいか。">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="hiroyuki&#43;=1">
+<meta name="twitter:url" content="http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/20181211/">
+<meta name="twitter:title" content="Rubyのシンボルについて - hiroyuki&#43;=1">
+<meta name="twitter:description" content="rubyのシンボルについて ただいまrailsを使用してのポートフォリオサイトを作っているのですが、railsチュートリアルを一周して理解が完全でないまま進めていると、時々これはなんだっけというものが出てくるので復習今回はシンボルrailsだとこういう時に使われるかdef user_params params.require(:user).permit(:name, :email, :password, :password_confirmation) end  リファレンスには  シンボルを表すクラス。シンボルは任意の文字列と一対一に対応するオブジェクトです。 文字列の代わりに用いることもできますが、必ずしも文字列と同じ振る舞いをするわけではありません。 同じ内容のシンボルはかならず同一のオブジェクトです。 よくわからないですねぇ中身は整数 プロを目指す人のためのRuby入門のシンボルを開いてみると* 表面は文字列と同じに見えるが、中身は整数 * 文字列より高速に処理ができると書いてある。そしてイミュータブルオブジェクトなので破壊的な変更はできない。name = :hiroyuki name.class #=&amp;gt; Symbol name.upcase! #=&amp;gt; NoMethodError  シンボルの使用例 代表的な使用例はハッシュのキーとして使う。ハッシュのキーに文字列を使うよりハッシュの方が高速らしい。ハッシュで使用する際の例role = {top: &#39;fighter&#39;,mid: &#39;mage&#39;, adc: :&#39;markshman&#39;} role[:adc] #=&amp;gt; &#39;marksman&#39; #キーも値もシンボルの場合 role = {top: :fighter,mid: :mage, adc: :markshman}  例えがわかりにくいがまあいいか。">
+<meta name="twitter:image" content="http://hiroyuki8823.net/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"http://hiroyuki8823.net/"
+    },
+    "headline": "Rubyのシンボルについて - hiroyuki&#43;=1",
+    "image": {
+      "@type": "ImageObject",
+      "url": "http://hiroyuki8823.net/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2018-12-11T08:37:59JST",
+    "dateModified": "2018-12-11T08:37:59JST",
+    "author": {
+      "@type": "Person",
+      "name": "hiroyuki&#43;=1"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "hiroyuki&#43;=1",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "http://hiroyuki8823.net/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "rubyのシンボルについて ただいまrailsを使用してのポートフォリオサイトを作っているのですが、railsチュートリアルを一周して理解が完全でないまま進めていると、時々これはなんだっけというものが出てくるので復習
+今回はシンボル
+railsだとこういう時に使われるか
+def user_params params.require(:user).permit(:name, :email, :password, :password_confirmation) end  リファレンスには  シンボルを表すクラス。シンボルは任意の文字列と一対一に対応するオブジェクトです。 文字列の代わりに用いることもできますが、必ずしも文字列と同じ振る舞いをするわけではありません。 同じ内容のシンボルはかならず同一のオブジェクトです。
+ よくわからないですねぇ
+中身は整数 プロを目指す人のためのRuby入門のシンボルを開いてみると
+* 表面は文字列と同じに見えるが、中身は整数 * 文字列より高速に処理ができる
+と書いてある。
+そしてイミュータブルオブジェクトなので破壊的な変更はできない。
+name = :hiroyuki name.class #=&gt; Symbol name.upcase! #=&gt; NoMethodError  
+シンボルの使用例 代表的な使用例はハッシュのキーとして使う。
+ハッシュのキーに文字列を使うよりハッシュの方が高速らしい。
+ハッシュで使用する際の例
+role = {top: 'fighter',mid: 'mage', adc: :'markshman'} role[:adc] #=&gt; 'marksman' #キーも値もシンボルの場合 role = {top: :fighter,mid: :mage, adc: :markshman}  例えがわかりにくいがまあいいか。"
+  }
+</script>
+
+
+    <style>
+      html { font-size: 18px; background-color: rgba(236,239,241,.5);}@media (max-width: 768px) { html { font-size: 15px; }}body { color: #333; font-family: 'Roboto Slab','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',メイリオ,Meiryo,sans-serif; font-feature-settings : "palt"; font-size: inherit; line-height: 1rem; margin: 0; padding: 0;}h1, h2, h3, h4, h5 ,h6 { font-size: 1rem; font-weight: 700; line-height: 1rem; margin: 0;}hr { border: 0; border-top: 1px dashed #cfd8dc; margin: 1rem 0;}p { margin: 0; line-height: 1rem;}a { color: #2196f3; text-decoration: none; transition-duration: .3s;}ul, ol { margin: 0; padding: 0;}table { border-collapse: collapse;}th, td { font-size: .8rem; padding: .5rem;}tr { border-bottom: 1px dashed #ddd;}/* Layouts */main,aside { display: block;}main { padding: 1rem 0 3rem 0; }aside.h { padding: 3rem 0; }main.f,aside.f { background-color: #333; border-top: 2px dashed #fff; border-bottom: 2px dashed #fff;}.l-container { position: relative; max-width: 68rem; margin: 0 auto; padding: 0 1rem;}.l-container.thin { max-width: 44rem;}.l-header { background-color: #fff; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); padding: 1rem 0; text-align: center;}.l-header .description { margin-top: .5rem; font-size: .8rem;}.l-footer { background-color: #fff; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); font-size: .6rem; font-weight: 700; padding: 1rem 0;}@media (max-width: 768px) { .l-sidebar { margin-top: 4rem; }}.mrow { margin: 0 -1rem; overflow: hidden;}.mcol { box-sizing: border-box; float: left; padding: 0 1rem;}.c6 { width: 50%; }.c4 { width: 33.26323833%; }.c8 { width: 66.66666%; }@media (max-width: 768px) { .mcol { width: 100%; float: none; }}.logo a { font-size: 1.4rem; line-height: 1.5rem; font-weight: 700; color: #333;}.articles { margin: -1rem 0; margin-bottom: 1rem;}.articles.sm { margin: -.5rem 0; margin-bottom: 0;}article { border-radius: 4px; overflow: hidden;}article.li { background-color: #fff; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); height: 20rem; overflow: hidden; margin: 1rem 0;}article.li > a { display: block; color: #333;}article.li .inner { padding: 1rem;}article.li .thumb { height: 8rem;}article.li .title { color: #333; font-size: 1.2rem; line-height: 1.5rem; margin-bottom: .5rem;}article.li .summary { font-size: .8rem; height: 6rem; overflow: hidden; margin-top: 1rem;}article.li .summary::after { content: '...';}article.lism { background-color: #fff; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); margin: .5rem 0;}article.lism::after { content: ''; display: block; clear: both;}article.lism > a { display: block; color: #333;}article.lism .inner { display: table-cell; vertical-align: middle; height: 5rem; padding: 0 .75rem;}article.lism .thumb { width: 5rem; height: 5rem; float: left;}article.lism .title { font-weight: 700; font-size: .8rem; margin-bottom: .25rem;}article.sn { background-color: #fff; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); margin-bottom: 1rem;}article.sn .thumb { height: 20rem;}@media (max-width: 768px) { article.sn .thumb { height: 10rem; }}article.sn > .article-header,article.sn > .article-body,article.sn .article-footer { padding: 2rem;}article.sn > .article-body { padding: 0 2rem;}@media (max-width: 768px) { article.sn > .article-header, article.sn > .article-body, article.sn .article-footer { padding: 1rem; } article.sn > .article-body { padding: 0 1rem; }}article.sn > .article-header .title { font-size: 1.8rem; line-height: 2rem; margin-bottom: .5rem;}@media (max-width: 768px) { article.sn > .article-header .title { font-size: 1.4rem; line-height: 1.5rem; }}article.sn > .article-header .facts { margin-bottom: 1rem;}article.sn > .article-body { margin-bottom: 1.5rem;}article.sn > .article-body h2 { border-bottom: .25rem solid #333; font-size: 1.2rem; line-height: 1.5rem; margin: 1.5rem 0; padding: .5rem 0;}article.sn > .article-body h3 { border-left: .5rem solid #333; line-height: 1.5rem; margin: 1.5rem 0; padding: .125rem .5rem;}article.sn > .article-body ul,article.sn > .article-body ol { margin: 1.5rem 0; padding-left: 1.5rem;}article.sn > .article-body li { padding-bottom: .5rem; line-height: 1.5rem;}article.sn > .article-body li:last-child { padding-bottom: 0;}article.sn > .article-body p { margin: 1rem 0; line-height: 1.5rem;}article.sn > .article-body strong,article.sn > .article-body em { font-style: normal; font-weight: 700;}article.sn > .article-body strong { box-shadow: 0 -.5rem 0 0 #ffc107 inset;}article.sn > .article-body em { color: #8bc34a;}article.sn > .article-body code,article.sn > .article-body pre { font-family: Menlo, Consolas, monospace; font-size: .7rem;}article.sn > .article-body pre { background-color: #333; color: #fff; line-height: 1rem; margin: 1.5rem -2rem; overflow: auto;}@media (max-width: 768px) { article.sn > .article-body pre { margin: 1.5rem -1rem; }}article.sn > .article-body pre > code { display: block; padding: 1rem 2rem;}@media (max-width: 768px) { article.sn > .article-body pre > code { padding: 1rem; }}article.sn > .article-body p code { background-color: #eceff1; color: #333; border-radius: 4px; margin: 0 .25rem; padding: .375rem; white-space: nowrap;}article.sn > .article-body blockquote { position: relative; border-left: .25rem solid #333; font-size: .8rem; padding: .125rem 1rem; margin: 1.5rem 0;}@media (max-width: 768px) { article.sn > .article-body blockquote { font-size: 1rem; }}article.sn > .article-body blockquote p { margin: .5rem 0; line-height: 1rem;}article.sn > .article-body figure { margin: 1.5rem 0;}article.sn > .article-body img,article.sn > .article-body figure img,article.sn > .article-body figure amp-img { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); max-width: 100%;}article.sn > .article-body figcaption { color: #cfd8dc; font-size: .8rem; font-weight: 700; margin-top: .5rem;}.facts li { display: inline; font-size: .8rem; margin-right: 1rem;}.facts i { color: #cfd8dc; margin-right: .5em;}.facts.sm li { font-size: .7rem;}.sections.sidebar { margin: -1rem 0;}.sections.footer { margin: -1rem 0;}section.sidebar { margin: 2rem 0;}section.sidebar > header { font-size: .8rem; font-weight: 700; letter-spacing: 4px; text-align: center; margin: 1.5rem 0;}section.footer { margin: 1rem 0;}section.footer > header { font-size: .8rem; margin: .5rem 0;}section.footer > header::before { content: "- ";}section.footer > header a { font-weight: 700; color: #333; text-decoration: underline;}.terms { margin: -.25rem;}.terms li { display: inline-block;}.terms a { display: block; float: left; background-color: #333; border-radius: 4px; color: #fff; font-size: .7rem; margin: .25rem; padding: 0 .75rem; line-height: 1.75rem;}.paging { text-align: center; padding: 1rem 0;}.paging a { display: inline-block; background-color: #fff; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); border-radius: 4px; color: #333; padding: 0 1rem; line-height: 3rem;}.page-title { text-align: center; margin: 1rem 0;}.page-title::after { content: ''; display: block; border-bottom: .25rem solid #333; width: 3rem; margin: 1.5rem auto;}.page-title > .title { font-size: 1.2rem; line-height: 1.5rem;}/* Parts:breadcrumb */.crumb ol { text-overflow: ellipsis; color: #cfd8dc; white-space: nowrap; overflow: hidden;}.crumb li { display: inline; font-size: .8rem;}.crumb li::after { content: '›'; margin: 0 .25rem 0 .5rem;}.crumb li:last-child::after { content: '';}.crumb a { color: #cfd8dc;}.crumb i { margin-right: .5em;}.share { padding: 0;}.share a { display: inline-block; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); min-width: 1rem; height: 2rem; border-radius: 4px; color: #333; font-size: .8rem; font-weight: 700; line-height: 2rem; text-align: center; padding: 0 .5rem;}.adj article.lism { margin-bottom: 1rem;}.adj header { font-weight: 700; font-size: .8rem;}.toc { padding: 0 2rem;}@media (max-width: 768px) { .toc { padding: 0 1rem; }}.toc { margin: 1rem 0;}.toc nav>ul { background-color: #eceff1; border-radius: 4px; display: inline-block; font-size: .8rem; padding: .5rem 1rem; word-break: break-all; list-style: none;}.toc ul { padding: 0;}.toc ul ul { padding-left: 1rem;}.toc ul ul ul { padding-left: 1rem;}.toc li { color: #90a4ae;}.toc ul ul>li { font-weight: 700; margin: .5rem 0; list-style-type: decimal;}.toc ul ul ul>li { list-style-type: disc; font-weight: 500;}.author { background-color: #fff; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); padding: 1rem; border-radius: 4px; text-align: center;}.author .author-thumb { margin: 0 auto 1rem; width: 6rem; height: 6rem; border-radius: 50%; background-color: #eceff1; background-size: cover; background-position: center;}.author .author-name { margin-bottom: .5rem; font-weight: 700;}.author .author-facts { margin-bottom: 1rem;}.author .author-facts li { display: inline;}.author .author-facts li a { display: inline-block; background-color: #eceff1; width: 1.75rem; height: 1.75rem; line-height: 1.75rem; text-align: center; color: #333; font-size: .8rem; border-radius: 2px;}.author .author-facts li a:hover { color: #fff; background-color: #333;}.author .author-description { text-align: left; font-size: .8rem;}.author .author-description p { margin: .5rem 0;}.thumb { background-image: url(http://hiroyuki8823.net/images/default.jpg); background-size: cover; background-position: center;}
+      
+       body { font-family: Lato,YuGothic,'Hiragino Kaku Gothic Pro',Meiryo,sans-serif; } 
+       .h-logo { font-family: Lobster, cursive; } 
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="http://hiroyuki8823.net/">hiroyuki&#43;=1</a>
+        </div>
+        
+<div class="description">
+  １日ひとつだけ強くなろう
+</div>
+
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+
+  <div class="thumb thumb-833c70f9c346600835d55f1fd0827293"></div>
+
+  <header class="article-header">
+    <h1 class="title">Rubyのシンボルについて</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-12-11T08:37:59JST">Dec 11, 2018</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/">プログラミング</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=http%3a%2f%2fhiroyuki8823.net%2f%25E3%2583%2595%25E3%2582%259A%25E3%2583%25AD%25E3%2582%25AF%25E3%2582%2599%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%2599%2f20181211%2f&title=Ruby%e3%81%ae%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%ab%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fhiroyuki8823.net%2f%25E3%2583%2595%25E3%2582%259A%25E3%2583%25AD%25E3%2582%25AF%25E3%2582%2599%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%2599%2f20181211%2f&text=Ruby%e3%81%ae%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%ab%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fhiroyuki8823.net%2f%25E3%2583%2595%25E3%2582%259A%25E3%2583%25AD%25E3%2582%25AF%25E3%2582%2599%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%2599%2f20181211%2f&t=Ruby%e3%81%ae%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%ab%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=http%3a%2f%2fhiroyuki8823.net%2f%25E3%2583%2595%25E3%2582%259A%25E3%2583%25AD%25E3%2582%25AF%25E3%2582%2599%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%2599%2f20181211%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=http%3a%2f%2fhiroyuki8823.net%2f%25E3%2583%2595%25E3%2582%259A%25E3%2583%25AD%25E3%2582%25AF%25E3%2582%2599%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%2599%2f20181211%2f&title=Ruby%e3%81%ae%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%ab%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Ruby%e3%81%ae%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%ab%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6 http%3a%2f%2fhiroyuki8823.net%2f%25E3%2583%2595%25E3%2582%259A%25E3%2583%25AD%25E3%2582%25AF%25E3%2582%2599%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%2599%2f20181211%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body">
+
+<h1 id="rubyのシンボルについて">rubyのシンボルについて</h1>
+
+<p>ただいまrailsを使用してのポートフォリオサイトを作っているのですが、railsチュートリアルを一周して理解が完全でないまま進めていると、時々これはなんだっけというものが出てくるので復習<br>
+今回はシンボル<br>
+railsだとこういう時に使われるか<br></p>
+
+<pre><code class="language-ruby"> def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+</code></pre>
+
+<h3 id="リファレンスには">リファレンスには</h3>
+
+<blockquote>
+<p>シンボルを表すクラス。シンボルは任意の文字列と一対一に対応するオブジェクトです。
+文字列の代わりに用いることもできますが、必ずしも文字列と同じ振る舞いをするわけではありません。 同じ内容のシンボルはかならず同一のオブジェクトです。</p>
+</blockquote>
+
+<p>よくわからないですねぇ</p>
+
+<h3 id="中身は整数">中身は整数</h3>
+
+<p>プロを目指す人のためのRuby入門のシンボルを開いてみると<br>
+* 表面は文字列と同じに見えるが、中身は整数
+* 文字列より高速に処理ができる<br></p>
+
+<p>と書いてある。<br>
+そしてイミュータブルオブジェクトなので破壊的な変更はできない。</p>
+
+<pre><code class="language-ruby">name = :hiroyuki
+name.class #=&gt; Symbol
+name.upcase! #=&gt; NoMethodError
+</code></pre>
+
+<p></p>
+
+<h3 id="シンボルの使用例">シンボルの使用例</h3>
+
+<p>代表的な使用例はハッシュのキーとして使う。<br>
+ハッシュのキーに文字列を使うよりハッシュの方が高速らしい。</p>
+
+<p>ハッシュで使用する際の例</p>
+
+<pre><code class="language-ruby">role = {top: 'fighter',mid: 'mage', adc: :'markshman'}
+role[:adc] #=&gt;  'marksman'
+#キーも値もシンボルの場合
+role = {top: :fighter,mid: :mage, adc: :markshman}
+</code></pre>
+
+<p>例えがわかりにくいがまあいいか。</p>
+</div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=http%3a%2f%2fhiroyuki8823.net%2f%25E3%2583%2595%25E3%2582%259A%25E3%2583%25AD%25E3%2582%25AF%25E3%2582%2599%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%2599%2f20181211%2f&title=Ruby%e3%81%ae%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%ab%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fhiroyuki8823.net%2f%25E3%2583%2595%25E3%2582%259A%25E3%2583%25AD%25E3%2582%25AF%25E3%2582%2599%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%2599%2f20181211%2f&text=Ruby%e3%81%ae%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%ab%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fhiroyuki8823.net%2f%25E3%2583%2595%25E3%2582%259A%25E3%2583%25AD%25E3%2582%25AF%25E3%2582%2599%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%2599%2f20181211%2f&t=Ruby%e3%81%ae%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%ab%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=http%3a%2f%2fhiroyuki8823.net%2f%25E3%2583%2595%25E3%2582%259A%25E3%2583%25AD%25E3%2582%25AF%25E3%2582%2599%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%2599%2f20181211%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=http%3a%2f%2fhiroyuki8823.net%2f%25E3%2583%2595%25E3%2582%259A%25E3%2583%25AD%25E3%2582%25AF%25E3%2582%2599%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%2599%2f20181211%2f&title=Ruby%e3%81%ae%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%ab%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Ruby%e3%81%ae%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%ab%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6 http%3a%2f%2fhiroyuki8823.net%2f%25E3%2583%2595%25E3%2582%259A%25E3%2583%25AD%25E3%2582%25AF%25E3%2582%2599%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25AF%25E3%2582%2599%2f20181211%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="http://hiroyuki8823.net/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/" itemprop="url"><span itemprop="title">プログラミング</span></a></li>
+            
+            <li class="active">Rubyのシンボルについて</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/first_post/">
+    <div class="thumb thumb-fd2ed774f79ee0d1ce2189410bcaf405"></div>
+
+    <div class="inner">
+      <div class="title">My First Post</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-12-10T08:37:59JST">Dec 10, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>プログラミング</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+<section class="sidebar">
+  <header>AUTHOR</header>
+  <div>
+    <div class="author">
+      
+      <div class="author-thumb" style="background-image: url(http://hiroyuki8823.net/images/author.jpg);"></div>
+      
+      <div class="author-name">Hiroyuki nZk</div>
+      <ul class="author-facts">
+        <li><a href="https://www.facebook.com/hiroyuki.nozaki.92" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="https://twitter.com/H1r0yuk188231" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/h1r0yuki8823" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul>
+      <div class="author-description"><p>都内の小さなSierでプログラマーやってます。</p><p>学習の成果とか読んだ本のアウトプットする場にしていきたい。</p><p>学習していること:Ruby,Ruby on Rails,Docker,AWS</p></div>
+    </div>
+  </div>
+</section>
+
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/20181211/">
+    <div class="thumb thumb-833c70f9c346600835d55f1fd0827293"></div>
+
+    <div class="inner">
+      <div class="title">Rubyのシンボルについて</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-12-11T08:37:59JST">Dec 11, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>プログラミング</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/first_post/">
+    <div class="thumb thumb-fd2ed774f79ee0d1ce2189410bcaf405"></div>
+
+    <div class="inner">
+      <div class="title">My First Post</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-12-10T08:37:59JST">Dec 10, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>プログラミング</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="http://hiroyuki8823.net/%E9%9B%91%E8%A8%98/first_post/">
+    <div class="thumb thumb-29c7a5886fef9b202b4280082d43189f"></div>
+
+    <div class="inner">
+      <div class="title">My First Post</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-12-10T08:37:59JST">Dec 10, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>雑記</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+
+    
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+
+    <footer class="l-footer">
+      <div class="l-container">
+        <p><span class="h-logo">&copy; hiroyuki&#43;=1</span></p>
+        <aside>
+          <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+          <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+      </div>
+    </footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+
