@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWSs on hiroyuki&#43;=1</title>
+    <link>https://hiroyuki8823.net/aws/</link>
+    <description>Recent content in AWSs on hiroyuki&#43;=1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp-JP</language>
+    <lastBuildDate>Tue, 18 Dec 2018 08:37:59 +0900</lastBuildDate>
+    
+	<atom:link href="https://hiroyuki8823.net/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>このサイトをhttps化してみたらハマった</title>
+      <link>https://hiroyuki8823.net/aws/%E3%81%93%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92https%E5%8C%96%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+      <pubDate>Tue, 18 Dec 2018 08:37:59 +0900</pubDate>
+      
+      <guid>https://hiroyuki8823.net/aws/%E3%81%93%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92https%E5%8C%96%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+      <description>サイトのhttps化 毎日更新を目標としてるわけではないけど、それでも週３回の更新は目標としていきたいところ。そのためにも日々インプットしていかなければと思う今日この頃
+さて今日はこのサイトをhttps化ができたのでその忘備録として残しておく。ハマったところとか、便利だったところとか。
+サーバー証明書の発行 https化自体はそこまで難しいわけではないが、CloudFrontやCertifcateManagerという今まで使ったことがなかったのでそれぞれの設定の意味とかを理解するのに少し手間がかかった。
+あとは証明書の検証メールが迷惑フォルダに放り込まれていたこともあったがhttps化は上手くいった。
+AccessDenied https化にした喜びも束の間、それぞれの記事を開こうとするとAccessDeniedと出力され、記事が読めないという自体に
+解決方法 ネットを探していると色々な理由でAccessDeniedと表示されているので、原因は人それぞれなのだろうが、僕の場合はこれで解決した。
+CloudFrontのOrigins and Origins Groupsから使用しているOriginsを編集。
+S3の使用しているバケットのStatic website hostingのエンドポイントに書かれているURLをOrigin Domain Nameに記載。
+DistributionのstatusがDeployedになりアクセスしてみると、記事にアクセスできるようになってるではありませんか!
+総括 今回はプログラミングのように、どこでエラーが出ているかなどのヒントが出ず、原因になりうる箇所も多数あったので解決まで時間がかかってしまった。
+もう少し設定の意味とか理解が深ければこうはならなかったのではないかと思うが、ひとまず安心。
+引き続きAWSへの知見は広めていきたい。</description>
+    </item>
+    
+  </channel>
+</rss>

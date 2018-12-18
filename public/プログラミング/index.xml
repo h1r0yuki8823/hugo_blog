@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>プログラミングs on hiroyuki&#43;=1</title>
-    <link>http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/</link>
+    <link>https://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/</link>
     <description>Recent content in プログラミングs on hiroyuki&#43;=1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp-JP</language>
     <lastBuildDate>Tue, 11 Dec 2018 08:37:59 +0900</lastBuildDate>
     
-	<atom:link href="http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Rubyのシンボルについて</title>
-      <link>http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/20181211/</link>
+      <link>https://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/20181211/</link>
       <pubDate>Tue, 11 Dec 2018 08:37:59 +0900</pubDate>
       
-      <guid>http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/20181211/</guid>
+      <guid>https://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/20181211/</guid>
       <description>rubyのシンボルについて ただいまrailsを使用してのポートフォリオサイトを作っているのですが、railsチュートリアルを一周して理解が完全でないまま進めていると、時々これはなんだっけというものが出てくるので復習
 今回はシンボル
 railsだとこういう時に使われるか
@@ -31,25 +31,6 @@ name = :hiroyuki name.class #=&amp;gt; Symbol name.upcase! #=&amp;gt; NoMethodEr
 ハッシュのキーに文字列を使うよりハッシュの方が高速らしい。
 ハッシュで使用する際の例
 role = {top: &#39;fighter&#39;,mid: &#39;mage&#39;, adc: :&#39;markshman&#39;} role[:adc] #=&amp;gt; &#39;marksman&#39; #キーも値もシンボルの場合 role = {top: :fighter,mid: :mage, adc: :markshman}  例えがわかりにくいがまあいいか。</description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/first_post/</link>
-      <pubDate>Mon, 10 Dec 2018 08:37:59 +0900</pubDate>
-      
-      <guid>http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/first_post/</guid>
-      <description>ブログはじめました どうも、都内のSIerでプログラマーをしているhiroyuki8823です。
-最近参加しているモクモク会でエンジニアはブログを書くべきだという話を聞いたので、アウトプットの場もかねてブログを作りました。
-普段勉強したことや、読んだ本の感想も書いていきます
-このブログはhugoとAWSを使用しています blogを始めるに当たって選択肢となるのがハテナブログがwordpressという有名どころです。
-しかしエンジニアの端くれ中の端くれなら、少し面白いことをしてみたいと思い、静的サイトジェネレータを使用してサイトを構築したいと思いhugoを選んだ。
-Rubyを勉強してるからJkeyllを使用してもよかったが、パフォーマンスがhugoがいいみたいなのでhugoを選択しました
-AWSに関してはRoute53でドメインを取得し、それを使用。自分のドメインを持つって気持ちいいもんですね笑
-S3を使用すれば簡単に公開できるかと思ってらバケットポリシーで見事に躓いてしまった
-まだhttpsにしてないので今後少しづつ進めて行きたいと思う。
-あとはCircleCIを使用して更新を自動化していきたい
-やりたいことはたくさんあるが&amp;hellip; やりたいことはhugoのテーマーを自作するなど、たくさんあるが時間は有限なので有効に使って行こう</description>
     </item>
     
   </channel>

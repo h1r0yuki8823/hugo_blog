@@ -2,21 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hiroyuki&#43;=1</title>
-    <link>http://hiroyuki8823.net/</link>
+    <link>https://hiroyuki8823.net/</link>
     <description>Recent content on hiroyuki&#43;=1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp-JP</language>
-    <lastBuildDate>Tue, 11 Dec 2018 08:37:59 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 18 Dec 2018 08:37:59 +0900</lastBuildDate>
     
-	<atom:link href="http://hiroyuki8823.net/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hiroyuki8823.net/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>このサイトをhttps化してみたらハマった</title>
+      <link>https://hiroyuki8823.net/aws/%E3%81%93%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92https%E5%8C%96%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+      <pubDate>Tue, 18 Dec 2018 08:37:59 +0900</pubDate>
+      
+      <guid>https://hiroyuki8823.net/aws/%E3%81%93%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92https%E5%8C%96%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+      <description>サイトのhttps化 毎日更新を目標としてるわけではないけど、それでも週３回の更新は目標としていきたいところ。そのためにも日々インプットしていかなければと思う今日この頃
+さて今日はこのサイトをhttps化ができたのでその忘備録として残しておく。ハマったところとか、便利だったところとか。
+サーバー証明書の発行 https化自体はそこまで難しいわけではないが、CloudFrontやCertifcateManagerという今まで使ったことがなかったのでそれぞれの設定の意味とかを理解するのに少し手間がかかった。
+あとは証明書の検証メールが迷惑フォルダに放り込まれていたこともあったがhttps化は上手くいった。
+AccessDenied https化にした喜びも束の間、それぞれの記事を開こうとするとAccessDeniedと出力され、記事が読めないという自体に
+解決方法 ネットを探していると色々な理由でAccessDeniedと表示されているので、原因は人それぞれなのだろうが、僕の場合はこれで解決した。
+CloudFrontのOrigins and Origins Groupsから使用しているOriginsを編集。
+S3の使用しているバケットのStatic website hostingのエンドポイントに書かれているURLをOrigin Domain Nameに記載。
+DistributionのstatusがDeployedになりアクセスしてみると、記事にアクセスできるようになってるではありませんか!
+総括 今回はプログラミングのように、どこでエラーが出ているかなどのヒントが出ず、原因になりうる箇所も多数あったので解決まで時間がかかってしまった。
+もう少し設定の意味とか理解が深ければこうはならなかったのではないかと思うが、ひとまず安心。
+引き続きAWSへの知見は広めていきたい。</description>
+    </item>
+    
+    <item>
       <title>Rubyのシンボルについて</title>
-      <link>http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/20181211/</link>
+      <link>https://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/20181211/</link>
       <pubDate>Tue, 11 Dec 2018 08:37:59 +0900</pubDate>
       
-      <guid>http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/20181211/</guid>
+      <guid>https://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/20181211/</guid>
       <description>rubyのシンボルについて ただいまrailsを使用してのポートフォリオサイトを作っているのですが、railsチュートリアルを一周して理解が完全でないまま進めていると、時々これはなんだっけというものが出てくるので復習
 今回はシンボル
 railsだとこういう時に使われるか
@@ -35,29 +55,10 @@ role = {top: &#39;fighter&#39;,mid: &#39;mage&#39;, adc: :&#39;markshman&#39;} r
     
     <item>
       <title>My First Post</title>
-      <link>http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/first_post/</link>
+      <link>https://hiroyuki8823.net/%E9%9B%91%E8%A8%98/first_post/</link>
       <pubDate>Mon, 10 Dec 2018 08:37:59 +0900</pubDate>
       
-      <guid>http://hiroyuki8823.net/%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%AF%E3%82%99/first_post/</guid>
-      <description>ブログはじめました どうも、都内のSIerでプログラマーをしているhiroyuki8823です。
-最近参加しているモクモク会でエンジニアはブログを書くべきだという話を聞いたので、アウトプットの場もかねてブログを作りました。
-普段勉強したことや、読んだ本の感想も書いていきます
-このブログはhugoとAWSを使用しています blogを始めるに当たって選択肢となるのがハテナブログがwordpressという有名どころです。
-しかしエンジニアの端くれ中の端くれなら、少し面白いことをしてみたいと思い、静的サイトジェネレータを使用してサイトを構築したいと思いhugoを選んだ。
-Rubyを勉強してるからJkeyllを使用してもよかったが、パフォーマンスがhugoがいいみたいなのでhugoを選択しました
-AWSに関してはRoute53でドメインを取得し、それを使用。自分のドメインを持つって気持ちいいもんですね笑
-S3を使用すれば簡単に公開できるかと思ってらバケットポリシーで見事に躓いてしまった
-まだhttpsにしてないので今後少しづつ進めて行きたいと思う。
-あとはCircleCIを使用して更新を自動化していきたい
-やりたいことはたくさんあるが&amp;hellip; やりたいことはhugoのテーマーを自作するなど、たくさんあるが時間は有限なので有効に使って行こう</description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>http://hiroyuki8823.net/%E9%9B%91%E8%A8%98/first_post/</link>
-      <pubDate>Mon, 10 Dec 2018 08:37:59 +0900</pubDate>
-      
-      <guid>http://hiroyuki8823.net/%E9%9B%91%E8%A8%98/first_post/</guid>
+      <guid>https://hiroyuki8823.net/%E9%9B%91%E8%A8%98/first_post/</guid>
       <description>ブログはじめました どうも、都内のSIerでプログラマーをしているhiroyuki8823です。
 最近参加しているモクモク会でエンジニアはブログを書くべきだという話を聞いたので、アウトプットの場もかねてブログを作りました。
 普段勉強したことや、読んだ本の感想も書いていきます

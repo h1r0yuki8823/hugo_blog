@@ -1,4 +1,4 @@
-baseURL = "http://hiroyuki8823.net/"
+baseURL = "https://hiroyuki8823.net/"
 languageCode = "jp-JP"
 title = "hiroyuki+=1"
 theme = "hugo_theme_robust"
