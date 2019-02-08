@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="https://hiroyuki8823.net/images/logo.png">
 
 
-<link rel="canonical" href="https://hiroyuki8823.net/%E9%9B%91%E8%A8%98/first_post/">
+<link rel="canonical" href="https://hiroyuki8823.net/javascript/2018last/">
 
 
     
@@ -19,26 +19,26 @@
     
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>My First Post - hiroyuki&#43;=1</title>
+    <title>2018last - hiroyuki&#43;=1</title>
     
 
-<link rel="amphtml" type="text/html" href="https://hiroyuki8823.net/amp/%E9%9B%91%E8%A8%98/first_post/">
+<link rel="amphtml" type="text/html" href="https://hiroyuki8823.net/amp/javascript/2018last/">
 
-<meta name="description" content="ブログはじめました どうも、都内のSIerでプログラマーをしているhiroyuki8823です。最近参加しているモクモク会でエンジニアはブログを書くべきだという話を聞いたので、アウトプットの場もかねてブログを作りました。普段勉強したことや、読んだ本の感想も書いていきますこのブログはhugoとAWSを使用しています blogを始めるに当たって選択肢となるのがハテナブログがwordpressという有名どころです。しかしエンジニアの端くれ中の端くれなら、少し面白いことをしてみたいと思い、静的サイトジェネレータを使用してサイトを構築したいと思いhugoを選んだ。Rubyを勉強してるからJkeyllを使用してもよかったが、パフォーマンスがhugoがいいみたいなのでhugoを選択しましたAWSに関してはRoute53でドメインを取得し、それを使用。自分のドメインを持つって気持ちいいもんですね笑S3を使用すれば簡単に公開できるかと思ってらバケットポリシーで見事に躓いてしまったまだhttpsにしてないので今後少しづつ進めて行きたいと思う。あとはCircleCIを使用して更新を自動化していきたいやりたいことはたくさんあるが&amp;hellip; やりたいことはhugoのテーマーを自作するなど、たくさんあるが時間は有限なので有効に使って行こう">
+<meta name="description" content="2018も終わる 2018年がもう少しで終わってしまう。あまりイベントに興味がない性格だけれども、やはり年の瀬というものは気持ちを切り替えるのに良いタイミングだと思うこのブログを作った当初、更新しまくる気だったが12月後半、出会い系にハマってしまい、自己研鑽が疎かになってしまったので2019年はそのようなことがないようにしたい&amp;hellip;JavaScriptを勉強 年の瀬に何を思ったかReactとReduxを勉強したいと思いはじめた。しかしそれにはJavaScriptの基本的な知識がないと始まらないので、年末はJavaScriptの勉強に時間をさいた。今回はこの学習メモを2018年の置き土産にしたいと思う。JavaScriptのforループ JavaScriptはES6というものが出てforループ文に便利なメソッドが追加され、用途に応じてそれを使い分けるのが良いそうだ。まずは従来のfor文var colors = [&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;]; for(var i = 0; i &amp;lt; colors.length; i &#43;&#43;){ console.log(colors[i]); }  map var numbers = [1, 2, 3]; var twiceNumber = numbers.map(function(number){ return number * 2 }); twiceNumber; //[2, 4, 6]  numbersの配列に入っている値を２倍してtwiceNumberに格納。numbersの配列分繰り返す。filter var products = [ {name: &#39;きゅうり&#39;, type: &#39;野菜&#39;}, {name: &#39;バナナ&#39;, type: &#39;フルーツ&#39;}, {name: &#39;セロリ&#39;, type: &#39;野菜&#39;}, {name: &#39;オレンジ&#39;, type: &#39;フルーツ&#39;}, ]; products.">
 
-<meta property="og:title" content="My First Post - hiroyuki&#43;=1">
+<meta property="og:title" content="2018last - hiroyuki&#43;=1">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://hiroyuki8823.net/%E9%9B%91%E8%A8%98/first_post/">
+<meta property="og:url" content="https://hiroyuki8823.net/javascript/2018last/">
 <meta property="og:image" content="https://hiroyuki8823.net/images/default.png">
 <meta property="og:site_name" content="hiroyuki&#43;=1">
-<meta property="og:description" content="ブログはじめました どうも、都内のSIerでプログラマーをしているhiroyuki8823です。最近参加しているモクモク会でエンジニアはブログを書くべきだという話を聞いたので、アウトプットの場もかねてブログを作りました。普段勉強したことや、読んだ本の感想も書いていきますこのブログはhugoとAWSを使用しています blogを始めるに当たって選択肢となるのがハテナブログがwordpressという有名どころです。しかしエンジニアの端くれ中の端くれなら、少し面白いことをしてみたいと思い、静的サイトジェネレータを使用してサイトを構築したいと思いhugoを選んだ。Rubyを勉強してるからJkeyllを使用してもよかったが、パフォーマンスがhugoがいいみたいなのでhugoを選択しましたAWSに関してはRoute53でドメインを取得し、それを使用。自分のドメインを持つって気持ちいいもんですね笑S3を使用すれば簡単に公開できるかと思ってらバケットポリシーで見事に躓いてしまったまだhttpsにしてないので今後少しづつ進めて行きたいと思う。あとはCircleCIを使用して更新を自動化していきたいやりたいことはたくさんあるが&amp;hellip; やりたいことはhugoのテーマーを自作するなど、たくさんあるが時間は有限なので有効に使って行こう">
+<meta property="og:description" content="2018も終わる 2018年がもう少しで終わってしまう。あまりイベントに興味がない性格だけれども、やはり年の瀬というものは気持ちを切り替えるのに良いタイミングだと思うこのブログを作った当初、更新しまくる気だったが12月後半、出会い系にハマってしまい、自己研鑽が疎かになってしまったので2019年はそのようなことがないようにしたい&amp;hellip;JavaScriptを勉強 年の瀬に何を思ったかReactとReduxを勉強したいと思いはじめた。しかしそれにはJavaScriptの基本的な知識がないと始まらないので、年末はJavaScriptの勉強に時間をさいた。今回はこの学習メモを2018年の置き土産にしたいと思う。JavaScriptのforループ JavaScriptはES6というものが出てforループ文に便利なメソッドが追加され、用途に応じてそれを使い分けるのが良いそうだ。まずは従来のfor文var colors = [&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;]; for(var i = 0; i &amp;lt; colors.length; i &#43;&#43;){ console.log(colors[i]); }  map var numbers = [1, 2, 3]; var twiceNumber = numbers.map(function(number){ return number * 2 }); twiceNumber; //[2, 4, 6]  numbersの配列に入っている値を２倍してtwiceNumberに格納。numbersの配列分繰り返す。filter var products = [ {name: &#39;きゅうり&#39;, type: &#39;野菜&#39;}, {name: &#39;バナナ&#39;, type: &#39;フルーツ&#39;}, {name: &#39;セロリ&#39;, type: &#39;野菜&#39;}, {name: &#39;オレンジ&#39;, type: &#39;フルーツ&#39;}, ]; products.">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="hiroyuki&#43;=1">
-<meta name="twitter:url" content="https://hiroyuki8823.net/%E9%9B%91%E8%A8%98/first_post/">
-<meta name="twitter:title" content="My First Post - hiroyuki&#43;=1">
-<meta name="twitter:description" content="ブログはじめました どうも、都内のSIerでプログラマーをしているhiroyuki8823です。最近参加しているモクモク会でエンジニアはブログを書くべきだという話を聞いたので、アウトプットの場もかねてブログを作りました。普段勉強したことや、読んだ本の感想も書いていきますこのブログはhugoとAWSを使用しています blogを始めるに当たって選択肢となるのがハテナブログがwordpressという有名どころです。しかしエンジニアの端くれ中の端くれなら、少し面白いことをしてみたいと思い、静的サイトジェネレータを使用してサイトを構築したいと思いhugoを選んだ。Rubyを勉強してるからJkeyllを使用してもよかったが、パフォーマンスがhugoがいいみたいなのでhugoを選択しましたAWSに関してはRoute53でドメインを取得し、それを使用。自分のドメインを持つって気持ちいいもんですね笑S3を使用すれば簡単に公開できるかと思ってらバケットポリシーで見事に躓いてしまったまだhttpsにしてないので今後少しづつ進めて行きたいと思う。あとはCircleCIを使用して更新を自動化していきたいやりたいことはたくさんあるが&amp;hellip; やりたいことはhugoのテーマーを自作するなど、たくさんあるが時間は有限なので有効に使って行こう">
+<meta name="twitter:url" content="https://hiroyuki8823.net/javascript/2018last/">
+<meta name="twitter:title" content="2018last - hiroyuki&#43;=1">
+<meta name="twitter:description" content="2018も終わる 2018年がもう少しで終わってしまう。あまりイベントに興味がない性格だけれども、やはり年の瀬というものは気持ちを切り替えるのに良いタイミングだと思うこのブログを作った当初、更新しまくる気だったが12月後半、出会い系にハマってしまい、自己研鑽が疎かになってしまったので2019年はそのようなことがないようにしたい&amp;hellip;JavaScriptを勉強 年の瀬に何を思ったかReactとReduxを勉強したいと思いはじめた。しかしそれにはJavaScriptの基本的な知識がないと始まらないので、年末はJavaScriptの勉強に時間をさいた。今回はこの学習メモを2018年の置き土産にしたいと思う。JavaScriptのforループ JavaScriptはES6というものが出てforループ文に便利なメソッドが追加され、用途に応じてそれを使い分けるのが良いそうだ。まずは従来のfor文var colors = [&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;]; for(var i = 0; i &amp;lt; colors.length; i &#43;&#43;){ console.log(colors[i]); }  map var numbers = [1, 2, 3]; var twiceNumber = numbers.map(function(number){ return number * 2 }); twiceNumber; //[2, 4, 6]  numbersの配列に入っている値を２倍してtwiceNumberに格納。numbersの配列分繰り返す。filter var products = [ {name: &#39;きゅうり&#39;, type: &#39;野菜&#39;}, {name: &#39;バナナ&#39;, type: &#39;フルーツ&#39;}, {name: &#39;セロリ&#39;, type: &#39;野菜&#39;}, {name: &#39;オレンジ&#39;, type: &#39;フルーツ&#39;}, ]; products.">
 <meta name="twitter:image" content="https://hiroyuki8823.net/images/default.png">
 
 
@@ -50,15 +50,15 @@
       "@type": "WebPage",
       "@id":"https://hiroyuki8823.net/"
     },
-    "headline": "My First Post - hiroyuki&#43;=1",
+    "headline": "2018last - hiroyuki&#43;=1",
     "image": {
       "@type": "ImageObject",
       "url": "https://hiroyuki8823.net/images/default.png",
       "height": 800,
       "width": 800
     },
-    "datePublished": "2018-12-10T08:37:59JST",
-    "dateModified": "2018-12-10T08:37:59JST",
+    "datePublished": "2018-12-31T23:29:21JST",
+    "dateModified": "2018-12-31T23:29:21JST",
     "author": {
       "@type": "Person",
       "name": "hiroyuki&#43;=1"
@@ -73,17 +73,17 @@
         "height": 60
       }
     },
-    "description": "ブログはじめました どうも、都内のSIerでプログラマーをしているhiroyuki8823です。
-最近参加しているモクモク会でエンジニアはブログを書くべきだという話を聞いたので、アウトプットの場もかねてブログを作りました。
-普段勉強したことや、読んだ本の感想も書いていきます
-このブログはhugoとAWSを使用しています blogを始めるに当たって選択肢となるのがハテナブログがwordpressという有名どころです。
-しかしエンジニアの端くれ中の端くれなら、少し面白いことをしてみたいと思い、静的サイトジェネレータを使用してサイトを構築したいと思いhugoを選んだ。
-Rubyを勉強してるからJkeyllを使用してもよかったが、パフォーマンスがhugoがいいみたいなのでhugoを選択しました
-AWSに関してはRoute53でドメインを取得し、それを使用。自分のドメインを持つって気持ちいいもんですね笑
-S3を使用すれば簡単に公開できるかと思ってらバケットポリシーで見事に躓いてしまった
-まだhttpsにしてないので今後少しづつ進めて行きたいと思う。
-あとはCircleCIを使用して更新を自動化していきたい
-やりたいことはたくさんあるが&hellip; やりたいことはhugoのテーマーを自作するなど、たくさんあるが時間は有限なので有効に使って行こう"
+    "description": "2018も終わる 2018年がもう少しで終わってしまう。
+あまりイベントに興味がない性格だけれども、やはり年の瀬というものは気持ちを切り替えるのに良いタイミングだと思う
+このブログを作った当初、更新しまくる気だったが12月後半、出会い系にハマってしまい、自己研鑽が疎かになってしまったので2019年はそのようなことがないようにしたい&hellip;
+JavaScriptを勉強 年の瀬に何を思ったかReactとReduxを勉強したいと思いはじめた。
+しかしそれにはJavaScriptの基本的な知識がないと始まらないので、年末はJavaScriptの勉強に時間をさいた。
+今回はこの学習メモを2018年の置き土産にしたいと思う。
+JavaScriptのforループ JavaScriptはES6というものが出てforループ文に便利なメソッドが追加され、用途に応じてそれを使い分けるのが良いそうだ。
+まずは従来のfor文
+var colors = ['red', 'blue', 'green']; for(var i = 0; i &lt; colors.length; i ++){ console.log(colors[i]); }  map var numbers = [1, 2, 3]; var twiceNumber = numbers.map(function(number){ return number * 2 }); twiceNumber; //[2, 4, 6]  numbersの配列に入っている値を２倍してtwiceNumberに格納。
+numbersの配列分繰り返す。
+filter var products = [ {name: 'きゅうり', type: '野菜'}, {name: 'バナナ', type: 'フルーツ'}, {name: 'セロリ', type: '野菜'}, {name: 'オレンジ', type: 'フルーツ'}, ]; products."
   }
 </script>
 
@@ -123,24 +123,24 @@ S3を使用すれば簡単に公開できるかと思ってらバケットポリ
 
     <article class="sn">
 
-  <div class="thumb thumb-29c7a5886fef9b202b4280082d43189f"></div>
+  <div class="thumb thumb-f90e6bc1177826a9503368cbfe99b5b4"></div>
 
   <header class="article-header">
-    <h1 class="title">My First Post</h1>
+    <h1 class="title">2018last</h1>
 
     <ul class="facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-12-10T08:37:59JST">Dec 10, 2018</time></li>
-      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="https://hiroyuki8823.net/%E9%9B%91%E8%A8%98/">雑記</a></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-12-31T23:29:21JST">Dec 31, 2018</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="https://hiroyuki8823.net/javascript/">JAVASCRIPT</a></li>
       
     </ul>
 
     <aside class="share">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fhiroyuki8823.net%2f%25E9%259B%2591%25E8%25A8%2598%2ffirst_post%2f&title=My%20First%20Post" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhiroyuki8823.net%2f%25E9%259B%2591%25E8%25A8%2598%2ffirst_post%2f&text=My%20First%20Post&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fhiroyuki8823.net%2f%25E9%259B%2591%25E8%25A8%2598%2ffirst_post%2f&t=My%20First%20Post" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fhiroyuki8823.net%2f%25E9%259B%2591%25E8%25A8%2598%2ffirst_post%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fhiroyuki8823.net%2f%25E9%259B%2591%25E8%25A8%2598%2ffirst_post%2f&title=My%20First%20Post" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
-  <a href="http://line.me/R/msg/text/?My%20First%20Post https%3a%2f%2fhiroyuki8823.net%2f%25E9%259B%2591%25E8%25A8%2598%2ffirst_post%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2f2018last%2f&title=2018last" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2f2018last%2f&text=2018last&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2f2018last%2f&t=2018last" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2f2018last%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2f2018last%2f&title=2018last" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?2018last https%3a%2f%2fhiroyuki8823.net%2fjavascript%2f2018last%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
 </aside>
 
   </header>
@@ -149,37 +149,160 @@ S3を使用すれば簡単に公開できるかと思ってらバケットポリ
 
   <div class="article-body">
 
-<h2 id="ブログはじめました">ブログはじめました</h2>
+<h2 id="2018も終わる">2018も終わる</h2>
 
-<p>どうも、都内のSIerでプログラマーをしているhiroyuki8823です。<br>
-最近参加しているモクモク会でエンジニアはブログを書くべきだという話を聞いたので、アウトプットの場もかねてブログを作りました。<br>
-普段勉強したことや、読んだ本の感想も書いていきます<br></p>
+<p>2018年がもう少しで終わってしまう。<br>
+あまりイベントに興味がない性格だけれども、やはり年の瀬というものは気持ちを切り替えるのに良いタイミングだと思う<br>
+このブログを作った当初、更新しまくる気だったが12月後半、出会い系にハマってしまい、自己研鑽が疎かになってしまったので2019年はそのようなことがないようにしたい&hellip;</p>
 
-<h1 id="このブログはhugoとawsを使用しています">このブログはhugoとAWSを使用しています</h1>
+<h2 id="javascriptを勉強">JavaScriptを勉強</h2>
 
-<p>blogを始めるに当たって選択肢となるのがハテナブログがwordpressという有名どころです。<br>
-しかしエンジニアの端くれ中の端くれなら、少し面白いことをしてみたいと思い、静的サイトジェネレータを使用してサイトを構築したいと思いhugoを選んだ。<br>
-Rubyを勉強してるからJkeyllを使用してもよかったが、パフォーマンスがhugoがいいみたいなのでhugoを選択しました<br>
-<br>
-AWSに関してはRoute53でドメインを取得し、それを使用。自分のドメインを持つって気持ちいいもんですね笑<br>
-S3を使用すれば簡単に公開できるかと思ってらバケットポリシーで見事に躓いてしまった<br>
-まだhttpsにしてないので今後少しづつ進めて行きたいと思う。<br>
-あとはCircleCIを使用して更新を自動化していきたい<br></p>
+<p>年の瀬に何を思ったかReactとReduxを勉強したいと思いはじめた。<br>
+しかしそれにはJavaScriptの基本的な知識がないと始まらないので、年末はJavaScriptの勉強に時間をさいた。<br>
+今回はこの学習メモを2018年の置き土産にしたいと思う。</p>
 
-<h1 id="やりたいことはたくさんあるが">やりたいことはたくさんあるが&hellip;</h1>
+<h3 id="javascriptのforループ">JavaScriptのforループ</h3>
 
-<p>やりたいことはhugoのテーマーを自作するなど、たくさんあるが時間は有限なので有効に使って行こう</p>
+<p>JavaScriptはES6というものが出てforループ文に便利なメソッドが追加され、用途に応じてそれを使い分けるのが良いそうだ。<br>
+まずは従来のfor文<br></p>
+
+<pre><code class="language-JS">var colors = ['red', 'blue', 'green'];
+
+for(var i = 0; i &lt; colors.length; i ++){
+  console.log(colors[i]);
+}
+</code></pre>
+
+<h3 id="map">map</h3>
+
+<pre><code class="language-JS">var numbers = [1, 2, 3];
+var twiceNumber = numbers.map(function(number){
+  return number * 2
+});
+
+twiceNumber; //[2, 4, 6]
+</code></pre>
+
+<p>numbersの配列に入っている値を２倍してtwiceNumberに格納。<br>
+numbersの配列分繰り返す。<br></p>
+
+<h3 id="filter">filter</h3>
+
+<pre><code class="language-JS">var products = [
+  {name: 'きゅうり', type: '野菜'},
+  {name: 'バナナ', type: 'フルーツ'},
+  {name: 'セロリ', type: '野菜'},
+  {name: 'オレンジ', type: 'フルーツ'},
+];
+
+products.filter(function(product){
+	return product.type === 'フルーツ';
+	// &amp;&amp; product.name === 'バナナ' 条件を追加するとき
+});
+</code></pre>
+
+<p>配列の中のある要素を含んでいるものを取り出したいときに使用<br>
+複数条件をつけたいときは&amp;&amp;で条件を付与することが可能<br></p>
+
+<h3 id="find">find</h3>
+
+<pre><code class="language-JS">var languages = [
+  {name:'Ruby'},
+  {name:'PHP'},
+  {name:'Python'},
+  ];
+  
+//Rubyを見つける
+languages.find(function(language){
+  return language.name === 'Ruby';
+});
+</code></pre>
+
+<p>最初に見つかったものが返される<br>
+最初に見つけた時点で処理が終了する<br></p>
+
+<h3 id="everyとsome">everyとsome</h3>
+
+<pre><code class="language-JS">var characters = [
+  {name:'Akari',price:4800},
+  {name:'poppy',price:450},
+  {name:'twitch',price:1350},
+  ];
+  
+  //false
+  characters.every(function(character){
+    return character.price &gt;= 1000;
+  });
+  //true
+  characters.some(function(character){
+    return character.price &gt;= 1000;
+  });
+</code></pre>
+
+<p>someは一つでも該当するものがあればtrueを返し、everyはすべての値がtrueで返さなければfalseとなる</p>
+
+<h3 id="reduce">reduce</h3>
+
+<pre><code class="language-JS">var numbers = [10, 20, 30];
+var sum = 0;
+
+numbers.reduce(function(sum, number){
+	return sum + number;
+}, 0);
+</code></pre>
+
+<p>reduceは初期値が存在する。この場合でいうと0が初期値<br>
+動きとしては、sumにnumbers配列の中身を足している</p>
+
+<h3 id="アロー関数">アロー関数</h3>
+
+<p>コードの書き方を簡略化するために使用</p>
+
+<pre><code class="language-JS">//従来の書き方
+const double = function(number){
+  return number * 2;
+};
+
+//アロー関数 
+const double = double = (number) =&gt; {
+  return 2 * number;
+}
+
+//もっとも簡略化するとき 引数が一つしかないとき
+const double = number =&gt; 2 * number;
+</code></pre>
+
+<h3 id="rest">Rest</h3>
+
+<pre><code class="language-JS">//...numbersの部分
+function addNumbers(...numbers){
+	return numbers.reduce((sum, number) =&gt; {
+  	return sum + number;
+  }, 0);
+}
+
+addNumbers(1, 2, 3, 4, 5,6);
+</code></pre>
+
+<p>変数を動的に変化させたい時に使用<br>
+関数の中で配列となっている</p>
+
+<h2 id="終わりに">終わりに</h2>
+
+<p>とりあえず年末に学習したもののメモを残しておく<br>
+これを書いてる時点であと１０分程度で年が変わってしまうが、来年は週に３本は書けるようにしていきたい<br>
+来年も頑張るぞい!</p>
 </div>
 
   <footer class="article-footer">
 
     <aside class="share">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fhiroyuki8823.net%2f%25E9%259B%2591%25E8%25A8%2598%2ffirst_post%2f&title=My%20First%20Post" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhiroyuki8823.net%2f%25E9%259B%2591%25E8%25A8%2598%2ffirst_post%2f&text=My%20First%20Post&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fhiroyuki8823.net%2f%25E9%259B%2591%25E8%25A8%2598%2ffirst_post%2f&t=My%20First%20Post" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fhiroyuki8823.net%2f%25E9%259B%2591%25E8%25A8%2598%2ffirst_post%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fhiroyuki8823.net%2f%25E9%259B%2591%25E8%25A8%2598%2ffirst_post%2f&title=My%20First%20Post" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
-  <a href="http://line.me/R/msg/text/?My%20First%20Post https%3a%2f%2fhiroyuki8823.net%2f%25E9%259B%2591%25E8%25A8%2598%2ffirst_post%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2f2018last%2f&title=2018last" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2f2018last%2f&text=2018last&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2f2018last%2f&t=2018last" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2f2018last%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2f2018last%2f&title=2018last" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?2018last https%3a%2f%2fhiroyuki8823.net%2fjavascript%2f2018last%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
 </aside>
 
 
@@ -189,9 +312,9 @@ S3を使用すれば簡単に公開できるかと思ってらバケットポリ
           <ol>
             <li><a href="https://hiroyuki8823.net/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
             
-            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://hiroyuki8823.net/%E9%9B%91%E8%A8%98/" itemprop="url"><span itemprop="title">雑記</span></a></li>
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://hiroyuki8823.net/javascript/" itemprop="url"><span itemprop="title">JAVASCRIPT</span></a></li>
             
-            <li class="active">My First Post</li>
+            <li class="active">2018last</li>
           </ol>
         </nav>
       </div>
@@ -211,6 +334,27 @@ S3を使用すれば簡単に公開できるかと思ってらバケットポリ
     <div class="adj">
       <div class="mrow">
         
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="https://hiroyuki8823.net/javascript/promise/">
+    <div class="thumb thumb-87fb7dce1a7672743c7e1945ba58895b"></div>
+
+    <div class="inner">
+      <div class="title">Promise</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-01-07T23:13:05JST">Jan 7, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>JAVASCRIPT</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
         
       </div>
     </div>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flasks on hiroyuki&#43;=1</title>
+    <link>https://hiroyuki8823.net/flask/</link>
+    <description>Recent content in Flasks on hiroyuki&#43;=1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp-JP</language>
+    <lastBuildDate>Fri, 08 Feb 2019 12:14:59 +0900</lastBuildDate>
+    
+	<atom:link href="https://hiroyuki8823.net/flask/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Use_Riotapi</title>
+      <link>https://hiroyuki8823.net/flask/use_riotapi/</link>
+      <pubDate>Fri, 08 Feb 2019 12:14:59 +0900</pubDate>
+      
+      <guid>https://hiroyuki8823.net/flask/use_riotapi/</guid>
+      <description>riotapiを使ってみたかった もともとjavaScriptのReactを使って簡単なアプリケーションを作ろうと思い、どんなアプリケーションを作ろうか考えた時に、自分の好きなゲーム「League of Ledends」に使えるメモアプリを作ろうと考えた。
+「League of Ledends」通称LoLの開発元のRiot Gamesはriot_apiという試合のデータ等を取得できるAPIを公開している。今回はこれを使用したかった。
+最初はReactだけで実装できると考えて簡単にボタンを押したら、APIを叩いて情報を取ってくるものを作った。
+取って来れなかった。。。 実行してみるとエラーが出てきて取ってこれなかった。調べてみるとCROS関係で駄目みたいだ。CROS関係も勉強しないと。
+riot_apiをの使用規約にAPI_KEYを公開するなと書かれている。フロントにkeyを記述するとapi_keyを見られる可能性があるのでapiサーバー側がブロックするよう設定されているようだ。
+flaskを使用 中継apiサーバーを立てて、そのサーバーにriot_apiを叩いてもらうという構想に行き着いた。今回の構想はこうだ
+フロント =&amp;gt; getリクエスト =&amp;gt; 中継サーバー =&amp;gt; getリクエスト =&amp;gt; riot_api =&amp;gt; josnを返す =&amp;gt; 中継サーバー =&amp;gt; jsonを整えたデータを返す =&amp;gt; フロント
+という形だ。
+軽量のフレームワークは色々あるがpythonにはRiotWatcherというライブラリあるのでflaskを採用した。
+実際にRiotApiを使用してみた githubに上げる時にAPI_KEYを公開しないため.envファイルに環境変数を設定してそこを使用するという事をやりたかった。 まずは.envファイルを作りその中に
+API_KEY = XXXXXXXXXXXXXXXXXXXXXXXXX  と記述
+settings.pyを作成し、settingsファイルが.envに入っているAPI_KEYを取ってくる処理を書く
+その際にはライブラリのpython-dotenvを使用する
+import os from os.path import join.dirname from dotenv import load_dotenv dotenv_path = join(dirname(__file__), &#39;.env&#39;) load_dotenv(dotenv_path) AP = os.environ.get(&amp;quot;API_KEY&amp;quot;)  実際にAPI_KEYを使用するファイルに記述する
+from flask import Flask, request, jsonify from riotwatcher import RiotWatcher, ApiError import json import collections as cl import pprint import settings API_KEY = settings.</description>
+    </item>
+    
+  </channel>
+</rss>

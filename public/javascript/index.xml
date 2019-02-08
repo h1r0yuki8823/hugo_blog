@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScripts on hiroyuki&#43;=1</title>
+    <link>https://hiroyuki8823.net/javascript/</link>
+    <description>Recent content in JavaScripts on hiroyuki&#43;=1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp-JP</language>
+    <lastBuildDate>Thu, 17 Jan 2019 12:43:23 +0900</lastBuildDate>
+    
+	<atom:link href="https://hiroyuki8823.net/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Class</title>
+      <link>https://hiroyuki8823.net/javascript/class/</link>
+      <pubDate>Thu, 17 Jan 2019 12:43:23 +0900</pubDate>
+      
+      <guid>https://hiroyuki8823.net/javascript/class/</guid>
+      <description>Class JavaScriptのClassについて勉強したので、その忘備録として学習メモを載っけます。
+ES5まではクラス機能を使用するのにprototypeを使用して、複雑なコードを書かなければならなかったがES6からclass機能そのものが実装された。
+classの基本構文 class Champion{ name(){ return &#39;ガレン&#39; } } const champion = new Champion(); chamion.name(); //ガレン  classの初期化 他の言語でいうinitializeの機能はconstructorを使用して行う
+class Champion{ //初期化 constructor({ role } ){ this.role = role; } name(){ return &#39;ガレン&#39;; } } const champion = new Champion({ role: &#39;Top&#39;}); champion //{&amp;quot;role&amp;quot;:&amp;quot;Top&amp;quot;} champion.name();//ガレン  継承 
+class Garen{ constructor(options){ this.role = options.role; } useItem(){ return &#39;黒斧&#39;; } } class Darius extends Garen { constructor(options){ //Garenクラスのcontracterを初期化するためにsuperを記述 super(options); this.</description>
+    </item>
+    
+    <item>
+      <title>Promise</title>
+      <link>https://hiroyuki8823.net/javascript/promise/</link>
+      <pubDate>Mon, 07 Jan 2019 23:13:05 +0900</pubDate>
+      
+      <guid>https://hiroyuki8823.net/javascript/promise/</guid>
+      <description>Promise JavaScriptのPromiseについて勉強したので、その忘備録として学習メモを載っけます。
+概要 JavaScriptには実行を止めるということが出来ない、なので長い処理を扱いたい場合はある処理を実行して、その後に続きの処理を行うというを順序を行うためにPromiseを利用する。
+promiseには３つの状態が存在する
+・unresolve 未解決 処理をが終わるのを待っている状態
+・resolved 成功　処理が終わって成功している状態
+・rejected 失敗 処理が終わって失敗している状態
+サンプルを下に記載
+const promise = new Promise((resolve, reject) =&amp;gt; { //成功時 resolve(); //失敗時 エラーをスローする reject(); }); promise //resolve時に実行される。 //登録されているthenを全て呼び出す .then(() =&amp;gt; console.log(&#39;成功です。&#39;)) .then(() =&amp;gt; console.log(&#39;複数実行することも可能&#39;)) //reject時に実行される .catch(() =&amp;gt; console.log(&#39;失敗しました&#39;))  Promiseのユースケース
+promise = new Promise((resolve, reject) =&amp;gt; { //３秒後に実行 setTimeout(() =&amp;gt; { resolve(); }, 3000) }); promise .then(() =&amp;gt; console.log(&#39;処理が完了しました。&#39;)) .catch(() =&amp;gt; console.log(&#39;処理が失敗しました。&#39;))  APIサーバーなどにリクエストを送ってその結果が返ってきてから次の処理を実行する時に利用される。
+fetch fetchはpromiseを使用してAjaxのリクエストを行える</description>
+    </item>
+    
+    <item>
+      <title>2018last</title>
+      <link>https://hiroyuki8823.net/javascript/2018last/</link>
+      <pubDate>Mon, 31 Dec 2018 23:29:21 +0900</pubDate>
+      
+      <guid>https://hiroyuki8823.net/javascript/2018last/</guid>
+      <description>2018も終わる 2018年がもう少しで終わってしまう。
+あまりイベントに興味がない性格だけれども、やはり年の瀬というものは気持ちを切り替えるのに良いタイミングだと思う
+このブログを作った当初、更新しまくる気だったが12月後半、出会い系にハマってしまい、自己研鑽が疎かになってしまったので2019年はそのようなことがないようにしたい&amp;hellip;
+JavaScriptを勉強 年の瀬に何を思ったかReactとReduxを勉強したいと思いはじめた。
+しかしそれにはJavaScriptの基本的な知識がないと始まらないので、年末はJavaScriptの勉強に時間をさいた。
+今回はこの学習メモを2018年の置き土産にしたいと思う。
+JavaScriptのforループ JavaScriptはES6というものが出てforループ文に便利なメソッドが追加され、用途に応じてそれを使い分けるのが良いそうだ。
+まずは従来のfor文
+var colors = [&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;]; for(var i = 0; i &amp;lt; colors.length; i ++){ console.log(colors[i]); }  map var numbers = [1, 2, 3]; var twiceNumber = numbers.map(function(number){ return number * 2 }); twiceNumber; //[2, 4, 6]  numbersの配列に入っている値を２倍してtwiceNumberに格納。
+numbersの配列分繰り返す。
+filter var products = [ {name: &#39;きゅうり&#39;, type: &#39;野菜&#39;}, {name: &#39;バナナ&#39;, type: &#39;フルーツ&#39;}, {name: &#39;セロリ&#39;, type: &#39;野菜&#39;}, {name: &#39;オレンジ&#39;, type: &#39;フルーツ&#39;}, ]; products.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -60,6 +60,119 @@
       <div class="mrow">
         
         <div class="mcol c6"><article class="li">
+  <a href="https://hiroyuki8823.net/flask/use_riotapi/">
+    <div class="thumb thumb-056da3950c68c69559f42940a9d35b86"></div>
+
+    <div class="inner">
+      <h2 class="title">Use_Riotapi</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-02-08T12:14:59JST">Feb 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>FLASK</li>
+        
+      </ul>
+
+      <div class="summary">riotapiを使ってみたかった もともとjavaScriptのReactを使って簡単なアプリケーションを作ろうと思い、どんなアプリケーションを作ろうか考えた時に、自分の好きなゲーム「League of Ledends」に使えるメモアプリを作ろうと考えた。
+「League of Ledends」通称LoLの開発元のRiot Gamesはriot_apiという試合のデータ等を取得できるAPIを公開している。今回はこれを使用したかった。
+最初はReactだけで実装できると考えて簡単にボタンを押したら、APIを叩いて情報を取ってくるものを作った。
+取って来れなかった。。。 実行してみるとエラーが出てきて取ってこれなかった。調べてみるとCROS関係で駄目みたいだ。CROS関係も勉強しないと。
+riot_apiをの使用規約にAPI_KEYを公開するなと書かれている。フロントにkeyを記述するとapi_keyを見られる可能性があるのでapiサーバー側がブロックするよう設定されているようだ。
+flaskを使用 中継apiサーバーを立てて、そのサーバーにriot_apiを叩いてもらうという構想に行き着いた。今回の構想はこうだ
+フロント =&gt; getリクエスト =&gt; 中継サーバー =&gt; getリクエスト =&gt; riot_api =&gt; josnを返す =&gt; 中継サーバー =&gt; jsonを整えたデータを返す =&gt; フロント
+という形だ。
+軽量のフレームワークは色々あるがpythonにはRiotWatcherというライブラリあるのでflaskを採用した。
+実際にRiotApiを使用してみた githubに上げる時にAPI_KEYを公開しないため.envファイルに環境変数を設定してそこを使用するという事をやりたかった。 まずは.envファイルを作りその中に
+API_KEY = XXXXXXXXXXXXXXXXXXXXXXXXX  と記述
+settings.pyを作成し、settingsファイルが.envに入っているAPI_KEYを取ってくる処理を書く
+その際にはライブラリのpython-dotenvを使用する
+import os from os.path import join.dirname from dotenv import load_dotenv dotenv_path = join(dirname(__file__), '.env') load_dotenv(dotenv_path) AP = os.environ.get(&quot;API_KEY&quot;)  実際にAPI_KEYを使用するファイルに記述する
+from flask import Flask, request, jsonify from riotwatcher import RiotWatcher, ApiError import json import collections as cl import pprint import settings API_KEY = settings.</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="https://hiroyuki8823.net/javascript/class/">
+    <div class="thumb thumb-2a82f0062b785a6ec9b308a4170437e1"></div>
+
+    <div class="inner">
+      <h2 class="title">Class</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-01-17T12:43:23JST">Jan 17, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>JAVASCRIPT</li>
+        
+      </ul>
+
+      <div class="summary">Class JavaScriptのClassについて勉強したので、その忘備録として学習メモを載っけます。
+ES5まではクラス機能を使用するのにprototypeを使用して、複雑なコードを書かなければならなかったがES6からclass機能そのものが実装された。
+classの基本構文 class Champion{ name(){ return 'ガレン' } } const champion = new Champion(); chamion.name(); //ガレン  classの初期化 他の言語でいうinitializeの機能はconstructorを使用して行う
+class Champion{ //初期化 constructor({ role } ){ this.role = role; } name(){ return 'ガレン'; } } const champion = new Champion({ role: 'Top'}); champion //{&quot;role&quot;:&quot;Top&quot;} champion.name();//ガレン  継承 
+class Garen{ constructor(options){ this.role = options.role; } useItem(){ return '黒斧'; } } class Darius extends Garen { constructor(options){ //Garenクラスのcontracterを初期化するためにsuperを記述 super(options); this.</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="https://hiroyuki8823.net/javascript/promise/">
+    <div class="thumb thumb-87fb7dce1a7672743c7e1945ba58895b"></div>
+
+    <div class="inner">
+      <h2 class="title">Promise</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-01-07T23:13:05JST">Jan 7, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>JAVASCRIPT</li>
+        
+      </ul>
+
+      <div class="summary">Promise JavaScriptのPromiseについて勉強したので、その忘備録として学習メモを載っけます。
+概要 JavaScriptには実行を止めるということが出来ない、なので長い処理を扱いたい場合はある処理を実行して、その後に続きの処理を行うというを順序を行うためにPromiseを利用する。
+promiseには３つの状態が存在する
+・unresolve 未解決 処理をが終わるのを待っている状態
+・resolved 成功　処理が終わって成功している状態
+・rejected 失敗 処理が終わって失敗している状態
+サンプルを下に記載
+const promise = new Promise((resolve, reject) =&gt; { //成功時 resolve(); //失敗時 エラーをスローする reject(); }); promise //resolve時に実行される。 //登録されているthenを全て呼び出す .then(() =&gt; console.log('成功です。')) .then(() =&gt; console.log('複数実行することも可能')) //reject時に実行される .catch(() =&gt; console.log('失敗しました'))  Promiseのユースケース
+promise = new Promise((resolve, reject) =&gt; { //３秒後に実行 setTimeout(() =&gt; { resolve(); }, 3000) }); promise .then(() =&gt; console.log('処理が完了しました。')) .catch(() =&gt; console.log('処理が失敗しました。'))  APIサーバーなどにリクエストを送ってその結果が返ってきてから次の処理を実行する時に利用される。
+fetch fetchはpromiseを使用してAjaxのリクエストを行える</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="https://hiroyuki8823.net/javascript/2018last/">
+    <div class="thumb thumb-f90e6bc1177826a9503368cbfe99b5b4"></div>
+
+    <div class="inner">
+      <h2 class="title">2018last</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-12-31T23:29:21JST">Dec 31, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>JAVASCRIPT</li>
+        
+      </ul>
+
+      <div class="summary">2018も終わる 2018年がもう少しで終わってしまう。
+あまりイベントに興味がない性格だけれども、やはり年の瀬というものは気持ちを切り替えるのに良いタイミングだと思う
+このブログを作った当初、更新しまくる気だったが12月後半、出会い系にハマってしまい、自己研鑽が疎かになってしまったので2019年はそのようなことがないようにしたい&hellip;
+JavaScriptを勉強 年の瀬に何を思ったかReactとReduxを勉強したいと思いはじめた。
+しかしそれにはJavaScriptの基本的な知識がないと始まらないので、年末はJavaScriptの勉強に時間をさいた。
+今回はこの学習メモを2018年の置き土産にしたいと思う。
+JavaScriptのforループ JavaScriptはES6というものが出てforループ文に便利なメソッドが追加され、用途に応じてそれを使い分けるのが良いそうだ。
+まずは従来のfor文
+var colors = ['red', 'blue', 'green']; for(var i = 0; i &lt; colors.length; i ++){ console.log(colors[i]); }  map var numbers = [1, 2, 3]; var twiceNumber = numbers.map(function(number){ return number * 2 }); twiceNumber; //[2, 4, 6]  numbersの配列に入っている値を２倍してtwiceNumberに格納。
+numbersの配列分繰り返す。
+filter var products = [ {name: 'きゅうり', type: '野菜'}, {name: 'バナナ', type: 'フルーツ'}, {name: 'セロリ', type: '野菜'}, {name: 'オレンジ', type: 'フルーツ'}, ]; products.</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
   <a href="https://hiroyuki8823.net/aws/%E3%81%93%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92https%E5%8C%96%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/">
     <div class="thumb thumb-46059ecac2bfe908536cbb3febdb59e5"></div>
 
@@ -174,7 +287,7 @@ S3を使用すれば簡単に公開できるかと思ってらバケットポリ
         <li><a href="https://twitter.com/H1r0yuk188231" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/h1r0yuki8823" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>都内の小さなSierでプログラマーやってます。</p><p>学習の成果とか読んだ本のアウトプットする場にしていきたい。</p><p>学習していること:Ruby,Ruby on Rails,Docker,AWS</p></div>
+      <div class="author-description"><p>都内の小さなSierでプログラマーやってます。</p><p>学習の成果とか読んだ本のアウトプットする場にしていきたい。</p><p>学習していること:JavaScript,React,AWS,firebase</p></div>
     </div>
   </div>
 </section>
@@ -184,6 +297,78 @@ S3を使用すれば簡単に公開できるかと思ってらバケットポリ
   <header>LATESTS</header>
   <div>
     <div class="articles sm">
+      
+      <article class="lism">
+  <a href="https://hiroyuki8823.net/flask/use_riotapi/">
+    <div class="thumb thumb-056da3950c68c69559f42940a9d35b86"></div>
+
+    <div class="inner">
+      <div class="title">Use_Riotapi</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-02-08T12:14:59JST">Feb 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>FLASK</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://hiroyuki8823.net/javascript/class/">
+    <div class="thumb thumb-2a82f0062b785a6ec9b308a4170437e1"></div>
+
+    <div class="inner">
+      <div class="title">Class</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-01-17T12:43:23JST">Jan 17, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>JAVASCRIPT</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://hiroyuki8823.net/javascript/promise/">
+    <div class="thumb thumb-87fb7dce1a7672743c7e1945ba58895b"></div>
+
+    <div class="inner">
+      <div class="title">Promise</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-01-07T23:13:05JST">Jan 7, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>JAVASCRIPT</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://hiroyuki8823.net/javascript/2018last/">
+    <div class="thumb thumb-f90e6bc1177826a9503368cbfe99b5b4"></div>
+
+    <div class="inner">
+      <div class="title">2018last</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-12-31T23:29:21JST">Dec 31, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>JAVASCRIPT</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
       
       <article class="lism">
   <a href="https://hiroyuki8823.net/aws/%E3%81%93%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92https%E5%8C%96%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/">

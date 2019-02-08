@@ -14,7 +14,7 @@ theme = "hugo_theme_robust"
 [params.author]
   thumbnail = "images/author.jpg"
   name = "Hiroyuki nZk"
-  description = "<p>都内の小さなSierでプログラマーやってます。</p><p>学習の成果とか読んだ本のアウトプットする場にしていきたい。</p><p>学習していること:Ruby,Ruby on Rails,Docker,AWS</p>"
+  description = "<p>都内の小さなSierでプログラマーやってます。</p><p>学習の成果とか読んだ本のアウトプットする場にしていきたい。</p><p>学習していること:JavaScript,React,AWS,firebase</p>"
   facebook = "https://www.facebook.com/hiroyuki.nozaki.92"
   twitter = "https://twitter.com/H1r0yuk188231"
   github = "https://github.com/h1r0yuki8823"
