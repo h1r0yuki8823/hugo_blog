@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="https://hiroyuki8823.net/images/logo.png">
 
 
-<link rel="canonical" href="https://hiroyuki8823.net/javascript/class/">
+<link rel="canonical" href="https://hiroyuki8823.net/javascript/attend_jslt/">
 
 
 
@@ -23,23 +23,23 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster%7cLato:400,700" rel="stylesheet">
     
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-    <title>Class - hiroyuki&#43;=1</title>
+    <title>Attend_jsLT - hiroyuki&#43;=1</title>
     
-<meta name="description" content="Class JavaScriptのClassについて勉強したので、その忘備録として学習メモを載っけます。ES5まではクラス機能を使用するのにprototypeを使用して、複雑なコードを書かなければならなかったがES6からclass機能そのものが実装された。classの基本構文 class Champion{ name(){ return &#39;ガレン&#39; } } const champion = new Champion(); chamion.name(); //ガレン  classの初期化 他の言語でいうinitializeの機能はconstructorを使用して行うclass Champion{ //初期化 constructor({ role } ){ this.role = role; } name(){ return &#39;ガレン&#39;; } } const champion = new Champion({ role: &#39;Top&#39;}); champion //{&amp;quot;role&amp;quot;:&amp;quot;Top&amp;quot;} champion.name();//ガレン  継承 class Garen{ constructor(options){ this.role = options.role; } useItem(){ return &#39;黒斧&#39;; } } class Darius extends Garen { constructor(options){ //Garenクラスのcontracterを初期化するためにsuperを記述 super(options); this.">
+<meta name="description" content="JavaScriptの勉強会に参加してきた たまにconnpassでもくもく会に参加したりしているのだが、今回はJavaScriptのLT大会に参加してきた。参加してきた会はこちら今回は初心者向けという事で年末からJS書き始めたばかりだけどとりあえず参加してみようという事で参加してきたLT発表一覧はリンク先に書いてあります発表の中には自分には難しいものもあれば、JSでRDBを作るといった面白いものまであって楽しい時間だった。発表中に登壇者参加者にどうしていいかわからないから助けてほしいという場面もあったが、普通に参加者が手を差し伸べてライブコーディングする場面もあり非常に楽しかった。LT大会参加してみたいけど尻込みしている方はこの会は参加しやすかったのでおすすめです。参加してきてよかった事 普段自分の範囲外のことを学べた例えば今回SEOの話が出てきて、検索上位に表示させるためにはどうすればいいのか、なんて考えたこともなかったやはり独学で勉強しているだけだと自分の範囲のことだけの知識が自然と集まってきてしまう。それはそれで大事なことだけれども、他の人がどういうことをしているのか、どういう技術を使っているのか知るのはすごく大事なことだと思った。特に僕みたいに普段JavaScriptを業務で使っていないし、会社で使っている人もいない場合、現場で使われているものや、細かい部分をネットの情報だけで追っていくにはなかなか難しいなと今回参加して思った。機会があれば いつか自分も発表できる事があれば、登壇して喋ってみたいと思った。そのためにも日々のinputとoutputをしっかりしていこう。でもまぁやっぱ仕事でJSとか使ってみたいなぁ">
 
-<meta property="og:title" content="Class - hiroyuki&#43;=1">
+<meta property="og:title" content="Attend_jsLT - hiroyuki&#43;=1">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://hiroyuki8823.net/javascript/class/">
+<meta property="og:url" content="https://hiroyuki8823.net/javascript/attend_jslt/">
 <meta property="og:image" content="https://hiroyuki8823.net/images/default.png">
 <meta property="og:site_name" content="hiroyuki&#43;=1">
-<meta property="og:description" content="Class JavaScriptのClassについて勉強したので、その忘備録として学習メモを載っけます。ES5まではクラス機能を使用するのにprototypeを使用して、複雑なコードを書かなければならなかったがES6からclass機能そのものが実装された。classの基本構文 class Champion{ name(){ return &#39;ガレン&#39; } } const champion = new Champion(); chamion.name(); //ガレン  classの初期化 他の言語でいうinitializeの機能はconstructorを使用して行うclass Champion{ //初期化 constructor({ role } ){ this.role = role; } name(){ return &#39;ガレン&#39;; } } const champion = new Champion({ role: &#39;Top&#39;}); champion //{&amp;quot;role&amp;quot;:&amp;quot;Top&amp;quot;} champion.name();//ガレン  継承 class Garen{ constructor(options){ this.role = options.role; } useItem(){ return &#39;黒斧&#39;; } } class Darius extends Garen { constructor(options){ //Garenクラスのcontracterを初期化するためにsuperを記述 super(options); this.">
+<meta property="og:description" content="JavaScriptの勉強会に参加してきた たまにconnpassでもくもく会に参加したりしているのだが、今回はJavaScriptのLT大会に参加してきた。参加してきた会はこちら今回は初心者向けという事で年末からJS書き始めたばかりだけどとりあえず参加してみようという事で参加してきたLT発表一覧はリンク先に書いてあります発表の中には自分には難しいものもあれば、JSでRDBを作るといった面白いものまであって楽しい時間だった。発表中に登壇者参加者にどうしていいかわからないから助けてほしいという場面もあったが、普通に参加者が手を差し伸べてライブコーディングする場面もあり非常に楽しかった。LT大会参加してみたいけど尻込みしている方はこの会は参加しやすかったのでおすすめです。参加してきてよかった事 普段自分の範囲外のことを学べた例えば今回SEOの話が出てきて、検索上位に表示させるためにはどうすればいいのか、なんて考えたこともなかったやはり独学で勉強しているだけだと自分の範囲のことだけの知識が自然と集まってきてしまう。それはそれで大事なことだけれども、他の人がどういうことをしているのか、どういう技術を使っているのか知るのはすごく大事なことだと思った。特に僕みたいに普段JavaScriptを業務で使っていないし、会社で使っている人もいない場合、現場で使われているものや、細かい部分をネットの情報だけで追っていくにはなかなか難しいなと今回参加して思った。機会があれば いつか自分も発表できる事があれば、登壇して喋ってみたいと思った。そのためにも日々のinputとoutputをしっかりしていこう。でもまぁやっぱ仕事でJSとか使ってみたいなぁ">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="hiroyuki&#43;=1">
-<meta name="twitter:url" content="https://hiroyuki8823.net/javascript/class/">
-<meta name="twitter:title" content="Class - hiroyuki&#43;=1">
-<meta name="twitter:description" content="Class JavaScriptのClassについて勉強したので、その忘備録として学習メモを載っけます。ES5まではクラス機能を使用するのにprototypeを使用して、複雑なコードを書かなければならなかったがES6からclass機能そのものが実装された。classの基本構文 class Champion{ name(){ return &#39;ガレン&#39; } } const champion = new Champion(); chamion.name(); //ガレン  classの初期化 他の言語でいうinitializeの機能はconstructorを使用して行うclass Champion{ //初期化 constructor({ role } ){ this.role = role; } name(){ return &#39;ガレン&#39;; } } const champion = new Champion({ role: &#39;Top&#39;}); champion //{&amp;quot;role&amp;quot;:&amp;quot;Top&amp;quot;} champion.name();//ガレン  継承 class Garen{ constructor(options){ this.role = options.role; } useItem(){ return &#39;黒斧&#39;; } } class Darius extends Garen { constructor(options){ //Garenクラスのcontracterを初期化するためにsuperを記述 super(options); this.">
+<meta name="twitter:url" content="https://hiroyuki8823.net/javascript/attend_jslt/">
+<meta name="twitter:title" content="Attend_jsLT - hiroyuki&#43;=1">
+<meta name="twitter:description" content="JavaScriptの勉強会に参加してきた たまにconnpassでもくもく会に参加したりしているのだが、今回はJavaScriptのLT大会に参加してきた。参加してきた会はこちら今回は初心者向けという事で年末からJS書き始めたばかりだけどとりあえず参加してみようという事で参加してきたLT発表一覧はリンク先に書いてあります発表の中には自分には難しいものもあれば、JSでRDBを作るといった面白いものまであって楽しい時間だった。発表中に登壇者参加者にどうしていいかわからないから助けてほしいという場面もあったが、普通に参加者が手を差し伸べてライブコーディングする場面もあり非常に楽しかった。LT大会参加してみたいけど尻込みしている方はこの会は参加しやすかったのでおすすめです。参加してきてよかった事 普段自分の範囲外のことを学べた例えば今回SEOの話が出てきて、検索上位に表示させるためにはどうすればいいのか、なんて考えたこともなかったやはり独学で勉強しているだけだと自分の範囲のことだけの知識が自然と集まってきてしまう。それはそれで大事なことだけれども、他の人がどういうことをしているのか、どういう技術を使っているのか知るのはすごく大事なことだと思った。特に僕みたいに普段JavaScriptを業務で使っていないし、会社で使っている人もいない場合、現場で使われているものや、細かい部分をネットの情報だけで追っていくにはなかなか難しいなと今回参加して思った。機会があれば いつか自分も発表できる事があれば、登壇して喋ってみたいと思った。そのためにも日々のinputとoutputをしっかりしていこう。でもまぁやっぱ仕事でJSとか使ってみたいなぁ">
 <meta name="twitter:image" content="https://hiroyuki8823.net/images/default.png">
 
 
@@ -51,15 +51,15 @@
       "@type": "WebPage",
       "@id":"https://hiroyuki8823.net/"
     },
-    "headline": "Class - hiroyuki&#43;=1",
+    "headline": "Attend_jsLT - hiroyuki&#43;=1",
     "image": {
       "@type": "ImageObject",
       "url": "https://hiroyuki8823.net/images/default.png",
       "height": 800,
       "width": 800
     },
-    "datePublished": "2019-01-17T12:43:23JST",
-    "dateModified": "2019-01-17T12:43:23JST",
+    "datePublished": "2019-02-21T22:10:34JST",
+    "dateModified": "2019-02-21T22:10:34JST",
     "author": {
       "@type": "Person",
       "name": "hiroyuki&#43;=1"
@@ -74,11 +74,21 @@
         "height": 60
       }
     },
-    "description": "Class JavaScriptのClassについて勉強したので、その忘備録として学習メモを載っけます。
-ES5まではクラス機能を使用するのにprototypeを使用して、複雑なコードを書かなければならなかったがES6からclass機能そのものが実装された。
-classの基本構文 class Champion{ name(){ return 'ガレン' } } const champion = new Champion(); chamion.name(); //ガレン  classの初期化 他の言語でいうinitializeの機能はconstructorを使用して行う
-class Champion{ //初期化 constructor({ role } ){ this.role = role; } name(){ return 'ガレン'; } } const champion = new Champion({ role: 'Top'}); champion //{&quot;role&quot;:&quot;Top&quot;} champion.name();//ガレン  継承 
-class Garen{ constructor(options){ this.role = options.role; } useItem(){ return '黒斧'; } } class Darius extends Garen { constructor(options){ //Garenクラスのcontracterを初期化するためにsuperを記述 super(options); this."
+    "description": "JavaScriptの勉強会に参加してきた たまにconnpassでもくもく会に参加したりしているのだが、今回はJavaScriptのLT大会に参加してきた。
+参加してきた会はこちら
+今回は初心者向けという事で年末からJS書き始めたばかりだけどとりあえず参加してみようという事で参加してきた
+LT発表一覧はリンク先に書いてあります
+発表の中には自分には難しいものもあれば、JSでRDBを作るといった面白いものまであって楽しい時間だった。
+発表中に登壇者参加者にどうしていいかわからないから助けてほしいという場面もあったが、普通に参加者が手を差し伸べてライブコーディングする場面もあり非常に楽しかった。
+LT大会参加してみたいけど尻込みしている方はこの会は参加しやすかったのでおすすめです。
+参加してきてよかった事 普段自分の範囲外のことを学べた
+例えば今回SEOの話が出てきて、検索上位に表示させるためにはどうすればいいのか、なんて考えたこともなかった
+やはり独学で勉強しているだけだと自分の範囲のことだけの知識が自然と集まってきてしまう。
+それはそれで大事なことだけれども、他の人がどういうことをしているのか、どういう技術を使っているのか知るのはすごく大事なことだと思った。
+特に僕みたいに普段JavaScriptを業務で使っていないし、会社で使っている人もいない場合、現場で使われているものや、細かい部分をネットの情報だけで追っていくにはなかなか難しいなと今回参加して思った。
+機会があれば いつか自分も発表できる事があれば、登壇して喋ってみたいと思った。
+そのためにも日々のinputとoutputをしっかりしていこう。
+でもまぁやっぱ仕事でJSとか使ってみたいなぁ"
   }
 </script>
 
@@ -113,24 +123,24 @@ class Garen{ constructor(options){ this.role = options.role; } useItem(){ return
         
 <article class="sn">
 
-  <div class="thumb thumb-2a82f0062b785a6ec9b308a4170437e1"></div>
+  <div class="thumb thumb-d31eb2cfc9a9e927847fda47b41ff498"></div>
 
   <header class="article-header">
-    <h1 class="title">Class</h1>
+    <h1 class="title">Attend_jsLT</h1>
 
     <ul class="facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-01-17T12:43:23JST">Jan 17, 2019</time></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-02-21T22:10:34JST">Feb 21, 2019</time></li>
       <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="https://hiroyuki8823.net/javascript/">JAVASCRIPT</a></li>
       
     </ul>
 
     <aside class="share">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fclass%2f&title=Class" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fclass%2f&text=Class&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fclass%2f&t=Class" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fclass%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fclass%2f&title=Class" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
-  <a href="http://line.me/R/msg/text/?Class https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fclass%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fattend_jslt%2f&title=Attend_jsLT" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fattend_jslt%2f&text=Attend_jsLT&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fattend_jslt%2f&t=Attend_jsLT" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fattend_jslt%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fattend_jslt%2f&title=Attend_jsLT" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Attend_jsLT https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fattend_jslt%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
 </aside>
 
   </header>
@@ -139,93 +149,39 @@ class Garen{ constructor(options){ this.role = options.role; } useItem(){ return
 
   <div class="article-body">
 
-<h2 id="class">Class</h2>
+<h2 id="javascriptの勉強会に参加してきた">JavaScriptの勉強会に参加してきた</h2>
 
-<p>JavaScriptのClassについて勉強したので、その忘備録として学習メモを載っけます。<br>
-ES5まではクラス機能を使用するのにprototypeを使用して、複雑なコードを書かなければならなかったがES6からclass機能そのものが実装された。<br>
-<br></p>
+<p>たまにconnpassでもくもく会に参加したりしているのだが、今回はJavaScriptのLT大会に参加してきた。<br>
+<a href="https://wajs.connpass.com/event/119722/">参加してきた会はこちら</a><br>
+今回は初心者向けという事で年末からJS書き始めたばかりだけどとりあえず参加してみようという事で参加してきた<br>
+LT発表一覧はリンク先に書いてあります<br>
+発表の中には自分には難しいものもあれば、JSでRDBを作るといった面白いものまであって楽しい時間だった。<br>
+発表中に登壇者参加者にどうしていいかわからないから助けてほしいという場面もあったが、普通に参加者が手を差し伸べてライブコーディングする場面もあり非常に楽しかった。<br>LT大会参加してみたいけど尻込みしている方はこの会は参加しやすかったのでおすすめです。</p>
 
-<h3 id="classの基本構文">classの基本構文</h3>
+<h2 id="参加してきてよかった事">参加してきてよかった事</h2>
 
-<pre><code class="language-JS">class Champion{
-  name(){
-    return 'ガレン'
-  }
-}
+<p>普段自分の範囲外のことを学べた<br>
+例えば今回SEOの話が出てきて、検索上位に表示させるためにはどうすればいいのか、なんて考えたこともなかった<br>
+やはり独学で勉強しているだけだと自分の範囲のことだけの知識が自然と集まってきてしまう。<br>
+それはそれで大事なことだけれども、他の人がどういうことをしているのか、どういう技術を使っているのか知るのはすごく大事なことだと思った。<br>
+特に僕みたいに普段JavaScriptを業務で使っていないし、会社で使っている人もいない場合、現場で使われているものや、細かい部分をネットの情報だけで追っていくにはなかなか難しいなと今回参加して思った。</p>
 
+<h2 id="機会があれば">機会があれば</h2>
 
-const champion = new Champion();
-chamion.name(); //ガレン
-</code></pre>
-
-<h3 id="classの初期化">classの初期化</h3>
-
-<p>他の言語でいうinitializeの機能はconstructorを使用して行う<br></p>
-
-<pre><code class="language-JS">class Champion{
-  //初期化
-  constructor({ role } ){
-  	this.role = role;
-  }
-  name(){
-    return 'ガレン';
-  }
-}
-
-const champion = new Champion({ role: 'Top'});
-champion //{&quot;role&quot;:&quot;Top&quot;}
-champion.name();//ガレン
-</code></pre>
-
-<h3 id="継承">継承</h3>
-
-<p></p>
-
-<pre><code class="language-JS">class Garen{
-  constructor(options){
-  	this.role = options.role;
-  }
-	useItem(){
-  	return '黒斧';
-  }
-}
-
-class Darius extends Garen {
-  constructor(options){
-    //Garenクラスのcontracterを初期化するためにsuperを記述
-    super(options);
-    this.type = options.type;
-  }
-  
-  passive(){
-  	return '大出血';
-  }
-};
-const garen = new Garen({role:'top'});
-const darius = new Darius({ type: 'fighter', role:'top'});
-garen; // {&quot;role&quot;:&quot;top&quot;}
-darius; //{&quot;role&quot;:&quot;top&quot;,&quot;type&quot;:&quot;fighter&quot;}
-darius.useItem(); //黒斧 GarenクラスのuseItem()を継承
-darius.passive();
-</code></pre>
-
-<h3 id="終わりに">終わりに</h3>
-
-<p>JavaScriptでclassが実装されるまではprototypeというものを使用していたらしいが結構面倒な実装方法だなぁと記憶している。<br>ちゃんと勉強したわけではないのでそちらも余裕があれば確認しておこう<br>
-今回サンプルコードを書くにあたってリーグオブレジェンドのキャラクター用語を使用して書いてみたが、知らない人からしたら、何が何だか分からないと思う。<br>
-まあLoLをやってる人がたまたま見て面白いと思ってくれたら幸いです。<br>
-※ガレンとかダリウスって黒斧使うっけ?</p>
+<p>いつか自分も発表できる事があれば、登壇して喋ってみたいと思った。<br>
+そのためにも日々のinputとoutputをしっかりしていこう。<br>
+でもまぁやっぱ仕事でJSとか使ってみたいなぁ</p>
 </div>
 
   <footer class="article-footer">
 
     <aside class="share">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fclass%2f&title=Class" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fclass%2f&text=Class&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fclass%2f&t=Class" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fclass%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fclass%2f&title=Class" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
-  <a href="http://line.me/R/msg/text/?Class https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fclass%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fattend_jslt%2f&title=Attend_jsLT" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fattend_jslt%2f&text=Attend_jsLT&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fattend_jslt%2f&t=Attend_jsLT" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fattend_jslt%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fattend_jslt%2f&title=Attend_jsLT" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Attend_jsLT https%3a%2f%2fhiroyuki8823.net%2fjavascript%2fattend_jslt%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
 </aside>
 
 
@@ -237,7 +193,7 @@ darius.passive();
             
             <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://hiroyuki8823.net/javascript/" itemprop="url"><span itemprop="title">JAVASCRIPT</span></a></li>
             
-            <li class="active">Class</li>
+            <li class="active">Attend_jsLT</li>
           </ol>
         </nav>
       </div>
@@ -260,14 +216,14 @@ darius.passive();
     <div class="mcol c6">
       <header>Previous Article</header>
       <article class="lism">
-  <a href="https://hiroyuki8823.net/javascript/promise/">
-    <div class="thumb thumb-87fb7dce1a7672743c7e1945ba58895b"></div>
+  <a href="https://hiroyuki8823.net/javascript/class/">
+    <div class="thumb thumb-2a82f0062b785a6ec9b308a4170437e1"></div>
 
     <div class="inner">
-      <div class="title">Promise</div>
+      <div class="title">Class</div>
 
       <ul class="facts sm">
-        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-01-07T23:13:05JST">Jan 7, 2019</time></li>
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-01-17T12:43:23JST">Jan 17, 2019</time></li>
         <li><i class="fa fa-bookmark" aria-hidden="true"></i>JAVASCRIPT</li>
         
       </ul>
@@ -278,27 +234,6 @@ darius.passive();
 
     </div>
     
-    
-    <div class="mcol c6">
-      <header>Next Article</header>
-      <article class="lism">
-  <a href="https://hiroyuki8823.net/javascript/attend_jslt/">
-    <div class="thumb thumb-d31eb2cfc9a9e927847fda47b41ff498"></div>
-
-    <div class="inner">
-      <div class="title">Attend_jsLT</div>
-
-      <ul class="facts sm">
-        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-02-21T22:10:34JST">Feb 21, 2019</time></li>
-        <li><i class="fa fa-bookmark" aria-hidden="true"></i>JAVASCRIPT</li>
-        
-      </ul>
-
-    </div>
-  </a>
-</article>
-
-    </div>
     
   </div>
 </div>

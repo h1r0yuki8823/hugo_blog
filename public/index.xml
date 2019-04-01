@@ -6,10 +6,62 @@
     <description>Recent content on hiroyuki&#43;=1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp-JP</language>
-    <lastBuildDate>Fri, 08 Feb 2019 12:14:59 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 01 Apr 2019 22:51:30 +0900</lastBuildDate>
     
 	<atom:link href="https://hiroyuki8823.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>User_agent_stylesheet_Invalidation</title>
+      <link>https://hiroyuki8823.net/user_agent_stylesheet_invalidation/</link>
+      <pubDate>Mon, 01 Apr 2019 22:51:30 +0900</pubDate>
+      
+      <guid>https://hiroyuki8823.net/user_agent_stylesheet_invalidation/</guid>
+      <description>小話 今、友人にサイトを作って欲しいと言われ簡単なサイトを作っている。簡単にwixのようなサイトを作成するサービスで済まそうと思ったけどもちょうどvueの教本が終わった所だったので、練習がてらVueを使用して作ってみることにした。
+今回はBootstrapのようなcssフレームワークを使用しないので教本を見ながらcssを設定している。
+四方に微妙な余白が サイトが形になっていくと四方の余白があることに気づいた。
+chromeのelementsを見てみるとbodyにmarginが8px設定されていることが確認できる
+cssを探してみてもどこにもmargin:8px;という記述はない
+よくよくelementsをみていると user agent stylesheetと書かれている。
+user agent stylesheetとは? user agent stylesheetはブラウザごとに定義されたデフォルトのcss設定のこと。
+このcssをリセットするためにはリセットCSSというものを使えば、ブラウザ固有のCSSの設定を上書きできる
+一応メリット、デメリットはあるみたいだ。
+メリット
+ブラウザごとのデザインを揃えることができる 自分でブラウザごとのCSSを書かなくて済む
+デメリット
+CSSのコード量が多くなる リセットして項目を自分で書く必要がある
+## とはいえ デメリットがあるとはいえ世の中に公開されているwebサイトはほとんどリセットCSSを使用しているので素直に使用しよう
+## 使用方法 リセットcssには種類があるが今回はnormalize.cssを使用
+github
+githubのページにアクセスして表示されたコードをコピペしてhtmlファイルのheaderタグの中で使用
+&amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt; &amp;lt;title&amp;gt;Normalize&amp;lt;/title&amp;gt; &amp;lt;!-- normalize.cssの読込 --&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;normalize.css&amp;quot;&amp;gt; &amp;lt;!-- 自身で作成したCSSファイルの読込 --&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;style.css&amp;quot;&amp;gt; &amp;lt;/head&amp;gt;  ## vueの場合 vue-cliを使用してnpmでインストールすることもできる
+こっちの方が楽な気がする
+ $ npm install -D normalize.css  インストールしたらルートとなるVueファイルで使用する
+&amp;lt;script&amp;gt; import &#39;normalize.css&#39; export default{ name: &#39;App&#39; } &amp;lt;/script&amp;gt;  適応したものをみてみると。。。</description>
+    </item>
+    
+    <item>
+      <title>Attend_jsLT</title>
+      <link>https://hiroyuki8823.net/javascript/attend_jslt/</link>
+      <pubDate>Thu, 21 Feb 2019 22:10:34 +0900</pubDate>
+      
+      <guid>https://hiroyuki8823.net/javascript/attend_jslt/</guid>
+      <description>JavaScriptの勉強会に参加してきた たまにconnpassでもくもく会に参加したりしているのだが、今回はJavaScriptのLT大会に参加してきた。
+参加してきた会はこちら
+今回は初心者向けという事で年末からJS書き始めたばかりだけどとりあえず参加してみようという事で参加してきた
+LT発表一覧はリンク先に書いてあります
+発表の中には自分には難しいものもあれば、JSでRDBを作るといった面白いものまであって楽しい時間だった。
+発表中に登壇者参加者にどうしていいかわからないから助けてほしいという場面もあったが、普通に参加者が手を差し伸べてライブコーディングする場面もあり非常に楽しかった。
+LT大会参加してみたいけど尻込みしている方はこの会は参加しやすかったのでおすすめです。
+参加してきてよかった事 普段自分の範囲外のことを学べた
+例えば今回SEOの話が出てきて、検索上位に表示させるためにはどうすればいいのか、なんて考えたこともなかった
+やはり独学で勉強しているだけだと自分の範囲のことだけの知識が自然と集まってきてしまう。
+それはそれで大事なことだけれども、他の人がどういうことをしているのか、どういう技術を使っているのか知るのはすごく大事なことだと思った。
+特に僕みたいに普段JavaScriptを業務で使っていないし、会社で使っている人もいない場合、現場で使われているものや、細かい部分をネットの情報だけで追っていくにはなかなか難しいなと今回参加して思った。
+機会があれば いつか自分も発表できる事があれば、登壇して喋ってみたいと思った。
+そのためにも日々のinputとoutputをしっかりしていこう。
+でもまぁやっぱ仕事でJSとか使ってみたいなぁ</description>
+    </item>
     
     <item>
       <title>Use_Riotapi</title>

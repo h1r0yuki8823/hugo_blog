@@ -3,6 +3,8 @@ languageCode = "jp-JP"
 title = "hiroyuki+=1"
 theme = "hugo_theme_robust"
 
+googleAnalytics="UA-135065044-1"
+
 [params]
   description = "１日ひとつだけ強くなろう"
   dateformat = "Jan 2, 2006" # Optional
@@ -12,9 +14,9 @@ theme = "hugo_theme_robust"
   logofontfamily = "Lobster, cursive" # Optional, Override logo font.
 
 [params.author]
-  thumbnail = "images/author.jpg"
+  thumbnail = "images/prof_icon.jpg"
   name = "Hiroyuki nZk"
-  description = "<p>都内の小さなSierでプログラマーやってます。</p><p>学習の成果とか読んだ本のアウトプットする場にしていきたい。</p><p>学習していること:JavaScript,React,AWS,firebase</p>"
+  description = "<p>都内の小さなSierでプログラマーやってます。</p><p>学習の成果とか読んだ本のアウトプットする場にしていきたい。</p><p>学習していること:JavaScript,Python,AWS,firebase</p>"
   facebook = "https://www.facebook.com/hiroyuki.nozaki.92"
   twitter = "https://twitter.com/H1r0yuk188231"
   github = "https://github.com/h1r0yuki8823"

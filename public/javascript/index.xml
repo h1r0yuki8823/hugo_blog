@@ -6,10 +6,33 @@
     <description>Recent content in JavaScripts on hiroyuki&#43;=1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp-JP</language>
-    <lastBuildDate>Thu, 17 Jan 2019 12:43:23 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 21 Feb 2019 22:10:34 +0900</lastBuildDate>
     
 	<atom:link href="https://hiroyuki8823.net/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Attend_jsLT</title>
+      <link>https://hiroyuki8823.net/javascript/attend_jslt/</link>
+      <pubDate>Thu, 21 Feb 2019 22:10:34 +0900</pubDate>
+      
+      <guid>https://hiroyuki8823.net/javascript/attend_jslt/</guid>
+      <description>JavaScriptの勉強会に参加してきた たまにconnpassでもくもく会に参加したりしているのだが、今回はJavaScriptのLT大会に参加してきた。
+参加してきた会はこちら
+今回は初心者向けという事で年末からJS書き始めたばかりだけどとりあえず参加してみようという事で参加してきた
+LT発表一覧はリンク先に書いてあります
+発表の中には自分には難しいものもあれば、JSでRDBを作るといった面白いものまであって楽しい時間だった。
+発表中に登壇者参加者にどうしていいかわからないから助けてほしいという場面もあったが、普通に参加者が手を差し伸べてライブコーディングする場面もあり非常に楽しかった。
+LT大会参加してみたいけど尻込みしている方はこの会は参加しやすかったのでおすすめです。
+参加してきてよかった事 普段自分の範囲外のことを学べた
+例えば今回SEOの話が出てきて、検索上位に表示させるためにはどうすればいいのか、なんて考えたこともなかった
+やはり独学で勉強しているだけだと自分の範囲のことだけの知識が自然と集まってきてしまう。
+それはそれで大事なことだけれども、他の人がどういうことをしているのか、どういう技術を使っているのか知るのはすごく大事なことだと思った。
+特に僕みたいに普段JavaScriptを業務で使っていないし、会社で使っている人もいない場合、現場で使われているものや、細かい部分をネットの情報だけで追っていくにはなかなか難しいなと今回参加して思った。
+機会があれば いつか自分も発表できる事があれば、登壇して喋ってみたいと思った。
+そのためにも日々のinputとoutputをしっかりしていこう。
+でもまぁやっぱ仕事でJSとか使ってみたいなぁ</description>
+    </item>
     
     <item>
       <title>Class</title>

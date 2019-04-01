@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="https://hiroyuki8823.net/images/logo.png">
 
 
-<link rel="canonical" href="https://hiroyuki8823.net/flask/use_riotapi/">
+<link rel="canonical" href="https://hiroyuki8823.net/user_agent_stylesheet_invalidation/">
 
 
     
@@ -19,26 +19,26 @@
     
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>Use_Riotapi - hiroyuki&#43;=1</title>
+    <title>User_agent_stylesheet_Invalidation - hiroyuki&#43;=1</title>
     
 
-<link rel="amphtml" type="text/html" href="https://hiroyuki8823.net/amp/flask/use_riotapi/">
+<link rel="amphtml" type="text/html" href="https://hiroyuki8823.net/amp/user_agent_stylesheet_invalidation/">
 
-<meta name="description" content="riotapiを使ってみたかった もともとjavaScriptのReactを使って簡単なアプリケーションを作ろうと思い、どんなアプリケーションを作ろうか考えた時に、自分の好きなゲーム「League of Ledends」に使えるメモアプリを作ろうと考えた。「League of Ledends」通称LoLの開発元のRiot Gamesはriot_apiという試合のデータ等を取得できるAPIを公開している。今回はこれを使用したかった。最初はReactだけで実装できると考えて簡単にボタンを押したら、APIを叩いて情報を取ってくるものを作った。取って来れなかった。。。 実行してみるとエラーが出てきて取ってこれなかった。調べてみるとCROS関係で駄目みたいだ。CROS関係も勉強しないと。riot_apiをの使用規約にAPI_KEYを公開するなと書かれている。フロントにkeyを記述するとapi_keyを見られる可能性があるのでapiサーバー側がブロックするよう設定されているようだ。flaskを使用 中継apiサーバーを立てて、そのサーバーにriot_apiを叩いてもらうという構想に行き着いた。今回の構想はこうだフロント =&amp;gt; getリクエスト =&amp;gt; 中継サーバー =&amp;gt; getリクエスト =&amp;gt; riot_api =&amp;gt; josnを返す =&amp;gt; 中継サーバー =&amp;gt; jsonを整えたデータを返す =&amp;gt; フロントという形だ。軽量のフレームワークは色々あるがpythonにはRiotWatcherというライブラリあるのでflaskを採用した。実際にRiotApiを使用してみた githubに上げる時にAPI_KEYを公開しないため.envファイルに環境変数を設定してそこを使用するという事をやりたかった。 まずは.envファイルを作りその中にAPI_KEY = XXXXXXXXXXXXXXXXXXXXXXXXX  と記述settings.pyを作成し、settingsファイルが.envに入っているAPI_KEYを取ってくる処理を書くその際にはライブラリのpython-dotenvを使用するimport os from os.path import join.dirname from dotenv import load_dotenv dotenv_path = join(dirname(__file__), &#39;.env&#39;) load_dotenv(dotenv_path) AP = os.environ.get(&amp;quot;API_KEY&amp;quot;)  実際にAPI_KEYを使用するファイルに記述するfrom flask import Flask, request, jsonify from riotwatcher import RiotWatcher, ApiError import json import collections as cl import pprint import settings API_KEY = settings.">
+<meta name="description" content="小話 今、友人にサイトを作って欲しいと言われ簡単なサイトを作っている。簡単にwixのようなサイトを作成するサービスで済まそうと思ったけどもちょうどvueの教本が終わった所だったので、練習がてらVueを使用して作ってみることにした。今回はBootstrapのようなcssフレームワークを使用しないので教本を見ながらcssを設定している。四方に微妙な余白が サイトが形になっていくと四方の余白があることに気づいた。chromeのelementsを見てみるとbodyにmarginが8px設定されていることが確認できるcssを探してみてもどこにもmargin:8px;という記述はないよくよくelementsをみていると user agent stylesheetと書かれている。user agent stylesheetとは? user agent stylesheetはブラウザごとに定義されたデフォルトのcss設定のこと。このcssをリセットするためにはリセットCSSというものを使えば、ブラウザ固有のCSSの設定を上書きできる一応メリット、デメリットはあるみたいだ。メリットブラウザごとのデザインを揃えることができる 自分でブラウザごとのCSSを書かなくて済むデメリットCSSのコード量が多くなる リセットして項目を自分で書く必要がある## とはいえ デメリットがあるとはいえ世の中に公開されているwebサイトはほとんどリセットCSSを使用しているので素直に使用しよう## 使用方法 リセットcssには種類があるが今回はnormalize.cssを使用githubgithubのページにアクセスして表示されたコードをコピペしてhtmlファイルのheaderタグの中で使用&amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt; &amp;lt;title&amp;gt;Normalize&amp;lt;/title&amp;gt; &amp;lt;!-- normalize.cssの読込 --&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;normalize.css&amp;quot;&amp;gt; &amp;lt;!-- 自身で作成したCSSファイルの読込 --&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;style.css&amp;quot;&amp;gt; &amp;lt;/head&amp;gt;  ## vueの場合 vue-cliを使用してnpmでインストールすることもできるこっちの方が楽な気がする $ npm install -D normalize.css  インストールしたらルートとなるVueファイルで使用する&amp;lt;script&amp;gt; import &#39;normalize.css&#39; export default{ name: &#39;App&#39; } &amp;lt;/script&amp;gt;  適応したものをみてみると。。。">
 
-<meta property="og:title" content="Use_Riotapi - hiroyuki&#43;=1">
+<meta property="og:title" content="User_agent_stylesheet_Invalidation - hiroyuki&#43;=1">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://hiroyuki8823.net/flask/use_riotapi/">
+<meta property="og:url" content="https://hiroyuki8823.net/user_agent_stylesheet_invalidation/">
 <meta property="og:image" content="https://hiroyuki8823.net/images/default.png">
 <meta property="og:site_name" content="hiroyuki&#43;=1">
-<meta property="og:description" content="riotapiを使ってみたかった もともとjavaScriptのReactを使って簡単なアプリケーションを作ろうと思い、どんなアプリケーションを作ろうか考えた時に、自分の好きなゲーム「League of Ledends」に使えるメモアプリを作ろうと考えた。「League of Ledends」通称LoLの開発元のRiot Gamesはriot_apiという試合のデータ等を取得できるAPIを公開している。今回はこれを使用したかった。最初はReactだけで実装できると考えて簡単にボタンを押したら、APIを叩いて情報を取ってくるものを作った。取って来れなかった。。。 実行してみるとエラーが出てきて取ってこれなかった。調べてみるとCROS関係で駄目みたいだ。CROS関係も勉強しないと。riot_apiをの使用規約にAPI_KEYを公開するなと書かれている。フロントにkeyを記述するとapi_keyを見られる可能性があるのでapiサーバー側がブロックするよう設定されているようだ。flaskを使用 中継apiサーバーを立てて、そのサーバーにriot_apiを叩いてもらうという構想に行き着いた。今回の構想はこうだフロント =&amp;gt; getリクエスト =&amp;gt; 中継サーバー =&amp;gt; getリクエスト =&amp;gt; riot_api =&amp;gt; josnを返す =&amp;gt; 中継サーバー =&amp;gt; jsonを整えたデータを返す =&amp;gt; フロントという形だ。軽量のフレームワークは色々あるがpythonにはRiotWatcherというライブラリあるのでflaskを採用した。実際にRiotApiを使用してみた githubに上げる時にAPI_KEYを公開しないため.envファイルに環境変数を設定してそこを使用するという事をやりたかった。 まずは.envファイルを作りその中にAPI_KEY = XXXXXXXXXXXXXXXXXXXXXXXXX  と記述settings.pyを作成し、settingsファイルが.envに入っているAPI_KEYを取ってくる処理を書くその際にはライブラリのpython-dotenvを使用するimport os from os.path import join.dirname from dotenv import load_dotenv dotenv_path = join(dirname(__file__), &#39;.env&#39;) load_dotenv(dotenv_path) AP = os.environ.get(&amp;quot;API_KEY&amp;quot;)  実際にAPI_KEYを使用するファイルに記述するfrom flask import Flask, request, jsonify from riotwatcher import RiotWatcher, ApiError import json import collections as cl import pprint import settings API_KEY = settings.">
+<meta property="og:description" content="小話 今、友人にサイトを作って欲しいと言われ簡単なサイトを作っている。簡単にwixのようなサイトを作成するサービスで済まそうと思ったけどもちょうどvueの教本が終わった所だったので、練習がてらVueを使用して作ってみることにした。今回はBootstrapのようなcssフレームワークを使用しないので教本を見ながらcssを設定している。四方に微妙な余白が サイトが形になっていくと四方の余白があることに気づいた。chromeのelementsを見てみるとbodyにmarginが8px設定されていることが確認できるcssを探してみてもどこにもmargin:8px;という記述はないよくよくelementsをみていると user agent stylesheetと書かれている。user agent stylesheetとは? user agent stylesheetはブラウザごとに定義されたデフォルトのcss設定のこと。このcssをリセットするためにはリセットCSSというものを使えば、ブラウザ固有のCSSの設定を上書きできる一応メリット、デメリットはあるみたいだ。メリットブラウザごとのデザインを揃えることができる 自分でブラウザごとのCSSを書かなくて済むデメリットCSSのコード量が多くなる リセットして項目を自分で書く必要がある## とはいえ デメリットがあるとはいえ世の中に公開されているwebサイトはほとんどリセットCSSを使用しているので素直に使用しよう## 使用方法 リセットcssには種類があるが今回はnormalize.cssを使用githubgithubのページにアクセスして表示されたコードをコピペしてhtmlファイルのheaderタグの中で使用&amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt; &amp;lt;title&amp;gt;Normalize&amp;lt;/title&amp;gt; &amp;lt;!-- normalize.cssの読込 --&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;normalize.css&amp;quot;&amp;gt; &amp;lt;!-- 自身で作成したCSSファイルの読込 --&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;style.css&amp;quot;&amp;gt; &amp;lt;/head&amp;gt;  ## vueの場合 vue-cliを使用してnpmでインストールすることもできるこっちの方が楽な気がする $ npm install -D normalize.css  インストールしたらルートとなるVueファイルで使用する&amp;lt;script&amp;gt; import &#39;normalize.css&#39; export default{ name: &#39;App&#39; } &amp;lt;/script&amp;gt;  適応したものをみてみると。。。">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="hiroyuki&#43;=1">
-<meta name="twitter:url" content="https://hiroyuki8823.net/flask/use_riotapi/">
-<meta name="twitter:title" content="Use_Riotapi - hiroyuki&#43;=1">
-<meta name="twitter:description" content="riotapiを使ってみたかった もともとjavaScriptのReactを使って簡単なアプリケーションを作ろうと思い、どんなアプリケーションを作ろうか考えた時に、自分の好きなゲーム「League of Ledends」に使えるメモアプリを作ろうと考えた。「League of Ledends」通称LoLの開発元のRiot Gamesはriot_apiという試合のデータ等を取得できるAPIを公開している。今回はこれを使用したかった。最初はReactだけで実装できると考えて簡単にボタンを押したら、APIを叩いて情報を取ってくるものを作った。取って来れなかった。。。 実行してみるとエラーが出てきて取ってこれなかった。調べてみるとCROS関係で駄目みたいだ。CROS関係も勉強しないと。riot_apiをの使用規約にAPI_KEYを公開するなと書かれている。フロントにkeyを記述するとapi_keyを見られる可能性があるのでapiサーバー側がブロックするよう設定されているようだ。flaskを使用 中継apiサーバーを立てて、そのサーバーにriot_apiを叩いてもらうという構想に行き着いた。今回の構想はこうだフロント =&amp;gt; getリクエスト =&amp;gt; 中継サーバー =&amp;gt; getリクエスト =&amp;gt; riot_api =&amp;gt; josnを返す =&amp;gt; 中継サーバー =&amp;gt; jsonを整えたデータを返す =&amp;gt; フロントという形だ。軽量のフレームワークは色々あるがpythonにはRiotWatcherというライブラリあるのでflaskを採用した。実際にRiotApiを使用してみた githubに上げる時にAPI_KEYを公開しないため.envファイルに環境変数を設定してそこを使用するという事をやりたかった。 まずは.envファイルを作りその中にAPI_KEY = XXXXXXXXXXXXXXXXXXXXXXXXX  と記述settings.pyを作成し、settingsファイルが.envに入っているAPI_KEYを取ってくる処理を書くその際にはライブラリのpython-dotenvを使用するimport os from os.path import join.dirname from dotenv import load_dotenv dotenv_path = join(dirname(__file__), &#39;.env&#39;) load_dotenv(dotenv_path) AP = os.environ.get(&amp;quot;API_KEY&amp;quot;)  実際にAPI_KEYを使用するファイルに記述するfrom flask import Flask, request, jsonify from riotwatcher import RiotWatcher, ApiError import json import collections as cl import pprint import settings API_KEY = settings.">
+<meta name="twitter:url" content="https://hiroyuki8823.net/user_agent_stylesheet_invalidation/">
+<meta name="twitter:title" content="User_agent_stylesheet_Invalidation - hiroyuki&#43;=1">
+<meta name="twitter:description" content="小話 今、友人にサイトを作って欲しいと言われ簡単なサイトを作っている。簡単にwixのようなサイトを作成するサービスで済まそうと思ったけどもちょうどvueの教本が終わった所だったので、練習がてらVueを使用して作ってみることにした。今回はBootstrapのようなcssフレームワークを使用しないので教本を見ながらcssを設定している。四方に微妙な余白が サイトが形になっていくと四方の余白があることに気づいた。chromeのelementsを見てみるとbodyにmarginが8px設定されていることが確認できるcssを探してみてもどこにもmargin:8px;という記述はないよくよくelementsをみていると user agent stylesheetと書かれている。user agent stylesheetとは? user agent stylesheetはブラウザごとに定義されたデフォルトのcss設定のこと。このcssをリセットするためにはリセットCSSというものを使えば、ブラウザ固有のCSSの設定を上書きできる一応メリット、デメリットはあるみたいだ。メリットブラウザごとのデザインを揃えることができる 自分でブラウザごとのCSSを書かなくて済むデメリットCSSのコード量が多くなる リセットして項目を自分で書く必要がある## とはいえ デメリットがあるとはいえ世の中に公開されているwebサイトはほとんどリセットCSSを使用しているので素直に使用しよう## 使用方法 リセットcssには種類があるが今回はnormalize.cssを使用githubgithubのページにアクセスして表示されたコードをコピペしてhtmlファイルのheaderタグの中で使用&amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt; &amp;lt;title&amp;gt;Normalize&amp;lt;/title&amp;gt; &amp;lt;!-- normalize.cssの読込 --&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;normalize.css&amp;quot;&amp;gt; &amp;lt;!-- 自身で作成したCSSファイルの読込 --&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;style.css&amp;quot;&amp;gt; &amp;lt;/head&amp;gt;  ## vueの場合 vue-cliを使用してnpmでインストールすることもできるこっちの方が楽な気がする $ npm install -D normalize.css  インストールしたらルートとなるVueファイルで使用する&amp;lt;script&amp;gt; import &#39;normalize.css&#39; export default{ name: &#39;App&#39; } &amp;lt;/script&amp;gt;  適応したものをみてみると。。。">
 <meta name="twitter:image" content="https://hiroyuki8823.net/images/default.png">
 
 
@@ -50,15 +50,15 @@
       "@type": "WebPage",
       "@id":"https://hiroyuki8823.net/"
     },
-    "headline": "Use_Riotapi - hiroyuki&#43;=1",
+    "headline": "User_agent_stylesheet_Invalidation - hiroyuki&#43;=1",
     "image": {
       "@type": "ImageObject",
       "url": "https://hiroyuki8823.net/images/default.png",
       "height": 800,
       "width": 800
     },
-    "datePublished": "2019-02-08T12:14:59JST",
-    "dateModified": "2019-02-08T12:14:59JST",
+    "datePublished": "2019-04-01T22:51:30JST",
+    "dateModified": "2019-04-01T22:51:30JST",
     "author": {
       "@type": "Person",
       "name": "hiroyuki&#43;=1"
@@ -73,21 +73,27 @@
         "height": 60
       }
     },
-    "description": "riotapiを使ってみたかった もともとjavaScriptのReactを使って簡単なアプリケーションを作ろうと思い、どんなアプリケーションを作ろうか考えた時に、自分の好きなゲーム「League of Ledends」に使えるメモアプリを作ろうと考えた。
-「League of Ledends」通称LoLの開発元のRiot Gamesはriot_apiという試合のデータ等を取得できるAPIを公開している。今回はこれを使用したかった。
-最初はReactだけで実装できると考えて簡単にボタンを押したら、APIを叩いて情報を取ってくるものを作った。
-取って来れなかった。。。 実行してみるとエラーが出てきて取ってこれなかった。調べてみるとCROS関係で駄目みたいだ。CROS関係も勉強しないと。
-riot_apiをの使用規約にAPI_KEYを公開するなと書かれている。フロントにkeyを記述するとapi_keyを見られる可能性があるのでapiサーバー側がブロックするよう設定されているようだ。
-flaskを使用 中継apiサーバーを立てて、そのサーバーにriot_apiを叩いてもらうという構想に行き着いた。今回の構想はこうだ
-フロント =&gt; getリクエスト =&gt; 中継サーバー =&gt; getリクエスト =&gt; riot_api =&gt; josnを返す =&gt; 中継サーバー =&gt; jsonを整えたデータを返す =&gt; フロント
-という形だ。
-軽量のフレームワークは色々あるがpythonにはRiotWatcherというライブラリあるのでflaskを採用した。
-実際にRiotApiを使用してみた githubに上げる時にAPI_KEYを公開しないため.envファイルに環境変数を設定してそこを使用するという事をやりたかった。 まずは.envファイルを作りその中に
-API_KEY = XXXXXXXXXXXXXXXXXXXXXXXXX  と記述
-settings.pyを作成し、settingsファイルが.envに入っているAPI_KEYを取ってくる処理を書く
-その際にはライブラリのpython-dotenvを使用する
-import os from os.path import join.dirname from dotenv import load_dotenv dotenv_path = join(dirname(__file__), '.env') load_dotenv(dotenv_path) AP = os.environ.get(&quot;API_KEY&quot;)  実際にAPI_KEYを使用するファイルに記述する
-from flask import Flask, request, jsonify from riotwatcher import RiotWatcher, ApiError import json import collections as cl import pprint import settings API_KEY = settings."
+    "description": "小話 今、友人にサイトを作って欲しいと言われ簡単なサイトを作っている。簡単にwixのようなサイトを作成するサービスで済まそうと思ったけどもちょうどvueの教本が終わった所だったので、練習がてらVueを使用して作ってみることにした。
+今回はBootstrapのようなcssフレームワークを使用しないので教本を見ながらcssを設定している。
+四方に微妙な余白が サイトが形になっていくと四方の余白があることに気づいた。
+chromeのelementsを見てみるとbodyにmarginが8px設定されていることが確認できる
+cssを探してみてもどこにもmargin:8px;という記述はない
+よくよくelementsをみていると user agent stylesheetと書かれている。
+user agent stylesheetとは? user agent stylesheetはブラウザごとに定義されたデフォルトのcss設定のこと。
+このcssをリセットするためにはリセットCSSというものを使えば、ブラウザ固有のCSSの設定を上書きできる
+一応メリット、デメリットはあるみたいだ。
+メリット
+ブラウザごとのデザインを揃えることができる 自分でブラウザごとのCSSを書かなくて済む
+デメリット
+CSSのコード量が多くなる リセットして項目を自分で書く必要がある
+## とはいえ デメリットがあるとはいえ世の中に公開されているwebサイトはほとんどリセットCSSを使用しているので素直に使用しよう
+## 使用方法 リセットcssには種類があるが今回はnormalize.cssを使用
+github
+githubのページにアクセスして表示されたコードをコピペしてhtmlファイルのheaderタグの中で使用
+&lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;Normalize&lt;/title&gt; &lt;!-- normalize.cssの読込 --&gt; &lt;link rel=&quot;stylesheet&quot; href=&quot;normalize.css&quot;&gt; &lt;!-- 自身で作成したCSSファイルの読込 --&gt; &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt; &lt;/head&gt;  ## vueの場合 vue-cliを使用してnpmでインストールすることもできる
+こっちの方が楽な気がする
+ $ npm install -D normalize.css  インストールしたらルートとなるVueファイルで使用する
+&lt;script&gt; import 'normalize.css' export default{ name: 'App' } &lt;/script&gt;  適応したものをみてみると。。。"
   }
 </script>
 
@@ -140,24 +146,24 @@ if (!doNotTrack) {
 
     <article class="sn">
 
-  <div class="thumb thumb-056da3950c68c69559f42940a9d35b86"></div>
+  <div class="thumb thumb-341928c21a030e9592b8352e58a0953d"></div>
 
   <header class="article-header">
-    <h1 class="title">Use_Riotapi</h1>
+    <h1 class="title">User_agent_stylesheet_Invalidation</h1>
 
     <ul class="facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-02-08T12:14:59JST">Feb 8, 2019</time></li>
-      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="https://hiroyuki8823.net/flask/">FLASK</a></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-01T22:51:30JST">Apr 1, 2019</time></li>
+      
       
     </ul>
 
     <aside class="share">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fhiroyuki8823.net%2fflask%2fuse_riotapi%2f&title=Use_Riotapi" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhiroyuki8823.net%2fflask%2fuse_riotapi%2f&text=Use_Riotapi&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fhiroyuki8823.net%2fflask%2fuse_riotapi%2f&t=Use_Riotapi" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fhiroyuki8823.net%2fflask%2fuse_riotapi%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fhiroyuki8823.net%2fflask%2fuse_riotapi%2f&title=Use_Riotapi" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
-  <a href="http://line.me/R/msg/text/?Use_Riotapi https%3a%2f%2fhiroyuki8823.net%2fflask%2fuse_riotapi%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fhiroyuki8823.net%2fuser_agent_stylesheet_invalidation%2f&title=User_agent_stylesheet_Invalidation" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhiroyuki8823.net%2fuser_agent_stylesheet_invalidation%2f&text=User_agent_stylesheet_Invalidation&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fhiroyuki8823.net%2fuser_agent_stylesheet_invalidation%2f&t=User_agent_stylesheet_Invalidation" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fhiroyuki8823.net%2fuser_agent_stylesheet_invalidation%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fhiroyuki8823.net%2fuser_agent_stylesheet_invalidation%2f&title=User_agent_stylesheet_Invalidation" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?User_agent_stylesheet_Invalidation https%3a%2f%2fhiroyuki8823.net%2fuser_agent_stylesheet_invalidation%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
 </aside>
 
   </header>
@@ -166,81 +172,97 @@ if (!doNotTrack) {
 
   <div class="article-body">
 
-<h2 id="riotapiを使ってみたかった">riotapiを使ってみたかった</h2>
+<h2 id="小話">小話</h2>
 
-<p>もともとjavaScriptのReactを使って簡単なアプリケーションを作ろうと思い、どんなアプリケーションを作ろうか考えた時に、自分の好きなゲーム「League of Ledends」に使えるメモアプリを作ろうと考えた。<br>
-「League of Ledends」通称LoLの開発元のRiot Gamesはriot_apiという試合のデータ等を取得できるAPIを公開している。今回はこれを使用したかった。<br>
-最初はReactだけで実装できると考えて簡単にボタンを押したら、APIを叩いて情報を取ってくるものを作った。<br></p>
+<p>今、友人にサイトを作って欲しいと言われ簡単なサイトを作っている。簡単にwixのようなサイトを作成するサービスで済まそうと思ったけどもちょうどvueの教本が終わった所だったので、練習がてらVueを使用して作ってみることにした。<br>
+今回はBootstrapのようなcssフレームワークを使用しないので教本を見ながらcssを設定している。<br></p>
 
-<h2 id="取って来れなかった">取って来れなかった。。。</h2>
+<h2 id="四方に微妙な余白が">四方に微妙な余白が</h2>
 
-<p>実行してみるとエラーが出てきて取ってこれなかった。調べてみるとCROS関係で駄目みたいだ。CROS関係も勉強しないと。<br>
-riot_apiをの使用規約にAPI_KEYを公開するなと書かれている。フロントにkeyを記述するとapi_keyを見られる可能性があるのでapiサーバー側がブロックするよう設定されているようだ。</p>
+<p>サイトが形になっていくと四方の余白があることに気づいた。<br>
+<img src="../images/css_space2.png" alt="This is a image1" /><br>
+chromeのelementsを見てみるとbodyにmarginが8px設定されていることが確認できる<br>
+<img src="../images/css_space1.png" alt="This is a image1" /><br>
+cssを探してみてもどこにもmargin:8px;という記述はない<br></p>
 
-<h2 id="flaskを使用">flaskを使用</h2>
+<p>よくよくelementsをみていると user agent stylesheetと書かれている。</p>
 
-<p>中継apiサーバーを立てて、そのサーバーにriot_apiを叩いてもらうという構想に行き着いた。今回の構想はこうだ<br>
-フロント =&gt; getリクエスト =&gt; 中継サーバー =&gt; getリクエスト =&gt; riot_api =&gt; josnを返す =&gt; 中継サーバー =&gt; jsonを整えたデータを返す =&gt; フロント<br>
-という形だ。<br>
-軽量のフレームワークは色々あるがpythonにはRiotWatcherというライブラリあるのでflaskを採用した。</p>
+<h2 id="user-agent-stylesheetとは">user agent stylesheetとは?</h2>
 
-<h2 id="実際にriotapiを使用してみた">実際にRiotApiを使用してみた</h2>
+<p>user agent stylesheetはブラウザごとに定義されたデフォルトのcss設定のこと。<br>
+このcssをリセットするためにはリセットCSSというものを使えば、ブラウザ固有のCSSの設定を上書きできる<br>
+一応メリット、デメリットはあるみたいだ。<br></p>
 
-<p>githubに上げる時にAPI_KEYを公開しないため.envファイルに環境変数を設定してそこを使用するという事をやりたかった。
-まずは.envファイルを作りその中に</p>
+<p>メリット<br>
+ <li>ブラウザごとのデザインを揃えることができる
+ <li>自分でブラウザごとのCSSを書かなくて済む</p>
 
-<pre><code>API_KEY = XXXXXXXXXXXXXXXXXXXXXXXXX
+<p>デメリット<br>
+ <li>CSSのコード量が多くなる
+ <li>リセットして項目を自分で書く必要がある<br></p>
+
+<p>## とはいえ
+ デメリットがあるとはいえ世の中に公開されているwebサイトはほとんどリセットCSSを使用しているので素直に使用しよう<br></p>
+
+<p>## 使用方法
+ リセットcssには種類があるが今回はnormalize.cssを使用<br>
+ <a href="https://raw.githubusercontent.com/necolas/normalize.css/master/n">github</a><br>
+ githubのページにアクセスして表示されたコードをコピペしてhtmlファイルのheaderタグの中で使用<br></p>
+
+<pre><code class="language-html"> &lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Normalize&lt;/title&gt;
+  &lt;!-- normalize.cssの読込 --&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;normalize.css&quot;&gt;
+
+  &lt;!-- 自身で作成したCSSファイルの読込 --&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
 </code></pre>
 
-<p>と記述<br>
-settings.pyを作成し、settingsファイルが.envに入っているAPI_KEYを取ってくる処理を書く<br>
-その際にはライブラリのpython-dotenvを使用する</p>
+<p>## vueの場合
+ vue-cliを使用してnpmでインストールすることもできる<br>
+ こっちの方が楽な気がする<br></p>
 
-<pre><code class="language-py">import os
-from os.path import join.dirname
-from dotenv import load_dotenv
-
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
-
-AP = os.environ.get(&quot;API_KEY&quot;)
+<pre><code> $ npm install -D normalize.css
 </code></pre>
 
-<p>実際にAPI_KEYを使用するファイルに記述する</p>
+<p>インストールしたらルートとなるVueファイルで使用する</p>
 
-<pre><code class="language-py">from flask import Flask, request, jsonify
-from riotwatcher import RiotWatcher, ApiError
-import json
-import collections as cl 
-import pprint 
-import settings
+<pre><code class="language-JS"> &lt;script&gt;
+ import 'normalize.css'
 
-API_KEY = settings.AP
-
-watcher = RiotWatcher(API_KEY)
-my_region = 'jp1'
-me = watcher.summoner.by_name(my_region, 'zer08823')
-print(me)
+ export default{
+     name: 'App'
+ }
+ &lt;/script&gt;
 </code></pre>
 
-<p>今回はriot_apiを使用してsummoner情報を取得する処理を書いてみた。<br>
-実行してみるとapiから撮ってきたjsonが出力されるので.envのAPI_KEYを使用できている事が確認出来た</p>
+<p>適応したものをみてみると。。。<br>
+<img src="../images/css_space4.png" alt="This is a image1" /><br>
+余白が消えている<br></p>
 
-<h2 id="終わりに">終わりに</h2>
+<p>elementsで確認してみると<br>
+<img src="../images/css_space3.png" alt="This is a image1" /><br>
+marginが無効化されているのが確認できた。<br></p>
 
-<p>javaScriptとReactを使用したアプリケーションを作ろうとと考えていたら、結果的にpythonをやるハメになったが、やはりアプリケーションを作るという目標があると勉強していても楽しい。<br>
-アプリケーションを作っていけばいくほど知らない事が出てきて学習の必要性を感じるけど、一つ一つ潰していこう</p>
+<h2 id="まとめ">まとめ</h2>
+
+<p>サイトを作る上でhtmlとcssを知ることは重要だと感じた。<br>
+bootstrapのようなcssフレームワークを使用する手もあったが今回は柔軟にデザインをしたいというのもあって使用はしなかった<br>
+コンポーネントに関してもどこまでの粒度に細分化するか勝手がわからないので、アトミックデザインの勉強もしないとなぁ<br>
+とりあえず完成を目指しましょう</p>
 </div>
 
   <footer class="article-footer">
 
     <aside class="share">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fhiroyuki8823.net%2fflask%2fuse_riotapi%2f&title=Use_Riotapi" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhiroyuki8823.net%2fflask%2fuse_riotapi%2f&text=Use_Riotapi&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fhiroyuki8823.net%2fflask%2fuse_riotapi%2f&t=Use_Riotapi" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fhiroyuki8823.net%2fflask%2fuse_riotapi%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fhiroyuki8823.net%2fflask%2fuse_riotapi%2f&title=Use_Riotapi" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
-  <a href="http://line.me/R/msg/text/?Use_Riotapi https%3a%2f%2fhiroyuki8823.net%2fflask%2fuse_riotapi%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fhiroyuki8823.net%2fuser_agent_stylesheet_invalidation%2f&title=User_agent_stylesheet_Invalidation" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fhiroyuki8823.net%2fuser_agent_stylesheet_invalidation%2f&text=User_agent_stylesheet_Invalidation&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fhiroyuki8823.net%2fuser_agent_stylesheet_invalidation%2f&t=User_agent_stylesheet_Invalidation" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fhiroyuki8823.net%2fuser_agent_stylesheet_invalidation%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fhiroyuki8823.net%2fuser_agent_stylesheet_invalidation%2f&title=User_agent_stylesheet_Invalidation" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?User_agent_stylesheet_Invalidation https%3a%2f%2fhiroyuki8823.net%2fuser_agent_stylesheet_invalidation%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
 </aside>
 
 
@@ -250,9 +272,7 @@ print(me)
           <ol>
             <li><a href="https://hiroyuki8823.net/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
             
-            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://hiroyuki8823.net/flask/" itemprop="url"><span itemprop="title">FLASK</span></a></li>
-            
-            <li class="active">Use_Riotapi</li>
+            <li class="active">User_agent_stylesheet_Invalidation</li>
           </ol>
         </nav>
       </div>
